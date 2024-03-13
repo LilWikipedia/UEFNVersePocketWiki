@@ -2,9 +2,11 @@
 #################################################
 # Generated Digest of Verse API
 # DO NOT modify this manually!
-# Generated from build: ++Fortnite+Release-28.20-CL-31165234
+# Generated from build: ++Fortnite+Release-29.00-CL-32116959
 #################################################
 
+# Module import path: /UnrealEngine.com/Assets
+Assets<public> := module:
 Temporary<public> := module:
     using {/Verse.org/Assets}
     using {/Verse.org/Colors}
@@ -12,7 +14,7 @@ Temporary<public> := module:
     using {/Verse.org/Simulation}
     # Module import path: /UnrealEngine.com/Temporary/UI
     UI<public> := module:
-        # Returns the `player_ui` component associated with `Player`.
+        # Returns the `player_ui` vk_component associated with `Player`.
         # Fails if there is no `player_ui` associated with `Player`.
         GetPlayerUI<native><public>(Player:player)<transacts><decides>:player_ui
 
@@ -381,7 +383,7 @@ Temporary<public> := module:
             SetText<native><public>(InText:message):void
 
             # Gets the text currently in the widget.
-            GetText<native><public>():[]char
+            GetText<native><public>():string
 
             # Sets the text justification in the widget.
             SetJustification<native><public>(InJustification:text_justification):void
@@ -479,7 +481,7 @@ Temporary<public> := module:
             DefaultLevel<native><public>:log_level = external {}
 
             # Print message using the given log level
-            (log:)Print<native><public>(Message:[]char, ?Level:log_level = external {})<computes>:void
+            (log:)Print<native><public>(Message:string, ?Level:log_level = external {})<computes>:void
 
             # Prints current script call stack using the give log level
             PrintCallStack<native><public>(?Level:log_level = external {})<computes>:void
@@ -606,7 +608,7 @@ Temporary<public> := module:
 
         # Makes a `string` representation of `rotation` in axis/degrees format with a left-handed sign convention.
         # `ToString(MakeRotation(vector3{X:=1.0, Y:=0.0, Z:=0.0}, PiFloat/2.0))` produces the string: `"Axis: {x=1.000000,y=0.000000,z=0.000000} Angle: 90.000000"`.
-        ToString<native><public>(Rotation:rotation)<varies>:[]char
+        ToString<native><public>(Rotation:rotation)<varies>:string
 
         # Returns radians from `Degrees`.
         DegreesToRadians<public>(Degrees:float)<varies>:float = external {}
@@ -635,7 +637,7 @@ Temporary<public> := module:
         TransformVectorNoScale<native><public>(InTransform:transform, InVector:vector3)<varies>:vector3
 
         # 2-dimensional vector with `float` components.
-        vector2<native><public> := struct<concrete><computes>:
+        vector2<native><public> := struct<concrete><computes><persistable>:
             @editable
             X<native><public>:float = external {}
 
@@ -670,7 +672,7 @@ Temporary<public> := module:
         Lerp<public>(From:vector2, To:vector2, Parameter:float)<varies>:vector2 = external {}
 
         # Makes a `string` representation of `V`.
-        ToString<native><public>(V:vector2)<varies>:[]char
+        ToString<native><public>(V:vector2)<varies>:string
 
         # Makes a `vector2` by inverting the signs of `Operand`.
         prefix'-'<public>(Operand:vector2)<computes>:vector2 = external {}
@@ -707,7 +709,7 @@ Temporary<public> := module:
         IsAlmostEqual<public>(V1:vector2, V2:vector2, AbsoluteTolerance:float)<computes><decides>:void = external {}
 
         # 2-dimensional vector with `int` components.
-        vector2i<native><public> := struct<concrete><computes>:
+        vector2i<native><public> := struct<concrete><computes><persistable>:
             @editable
             X<native><public>:int = external {}
 
@@ -722,7 +724,7 @@ Temporary<public> := module:
         Equals<public>(V1:vector2i, V2:vector2i)<computes><decides>:vector2i = external {}
 
         # Makes a `string` representation of `V`.
-        ToString<native><public>(V:vector2i)<computes>:[]char
+        ToString<native><public>(V:vector2i)<computes>:string
 
         # Makes a `vector2i` by component-wise truncation of `V` to `ints`s.
         ToVector2i<public>(V:vector2)<varies><decides>:vector2i = external {}
@@ -743,7 +745,7 @@ Temporary<public> := module:
         operator'*'<public>(Left:int, Right:vector2i)<computes>:vector2i = external {}
 
         # 3-dimensional vector with `float` components.
-        vector3<native><public> := struct<concrete><computes>:
+        vector3<native><public> := struct<concrete><computes><persistable>:
             @editable
             X<native><public>:float = external {}
 
@@ -780,7 +782,7 @@ Temporary<public> := module:
         (V:vector3).MakeUnitVector<native><public>()<varies><decides>:vector3
 
         # Makes a `string` representation of `V`.
-        ToString<native><public>(V:vector3)<varies>:[]char
+        ToString<native><public>(V:vector3)<varies>:string
 
         # Returns the length of `V`.
         (V:vector3).Length<public>()<varies>:float = external {}
@@ -831,3 +833,4 @@ Temporary<public> := module:
 
         # Succeeds when each component of `V1` and `V2` are within `AbsoluteTolerance` of each other.
         IsAlmostEqual<public>(V1:vector3, V2:vector3, AbsoluteTolerance:float)<computes><decides>:void = external {}
+
