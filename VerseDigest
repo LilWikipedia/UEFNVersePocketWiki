@@ -2,38 +2,10 @@
 #################################################
 # Generated Digest of Verse API
 # DO NOT modify this manually!
-# Generated from build: ++Fortnite+Release-28.20-CL-31165234
+# Generated from build: ++Fortnite+Release-29.00-CL-32116959
 #################################################
 
-# Module import path: /Verse.org/Simulation
 Simulation<public> := module:
-    agent<native><public> := class<unique><epic_internal>:
-
-    localizable_agent<native><epic_internal> := class(localizable_value):
-
-    MakeLocalizableValue<epic_internal>(Agent:agent):localizable_agent = external {}
-
-    player<native><public> := class<unique><persistent><epic_internal>(agent):
-
-    # Type for which there is a single instance per round.  Use `GetSession` to get the current round's `session` instance. May be used with `weak_map` to implement global variables.
-    # Note: may be changed in a future release to a single instance per game. Round-local behavior should not be relied upon.
-    session<native><public> := class<unique><module_scoped_var_weak_map_key><epic_internal>:
-
-    # Returns the `session` corresponding to the current round.  The result can be used with `weak_map` to implement global variables.
-    # Note: may be changed in a future release to return a single instance per game. Round-local behavior should not be relied upon.
-    GetSession<native><public>()<varies>:session
-
-    # Waits specified number of seconds and then resumes. If `Seconds` = 0.0 then it waits until next tick/frame/update. If `Seconds` = Inf then it waits forever and only calls back if canceled - such as via `race`. If `Seconds` < 0.0 then it completes immediately and does not yield to other aysnc expressions.
-    # Waiting until the next update (0.0) is especially useful in a loop of a coroutine that needs to do some work every update and this yields to other coroutines so that it doesn't hog a processor's resources.
-    # Waiting forever (Inf) will have any expression that follows never be evaluated. Occasionally it is desireable to have a task never complete such as the last expression in a `race` subtask where the task must never win the race though it still may be canceled earlier.
-    # Immediately completing (less than 0) is useful when you want programmatic control over whether an expression yields or not.
-    Sleep<native><public>(Seconds:float)<suspends>:void
-
-    # Get the seconds that have elapsed since the world began simulating
-    GetSimulationElapsedTime<native><public>()<transacts>:float
-
-    team<native><public> := class<unique><epic_internal>:
-
     # Module import path: /Verse.org/Simulation/Tags
     Tags<public> := module:
         # A single gameplay tag, which represents a hierarchical name of the form x.y that is registered in the GameplayTagsManager You can filter the gameplay tags displayed in the editor.
@@ -73,6 +45,112 @@ Simulation<public> := module:
     @attribscope_data
     @customattribhandler
     editable<public> := class(attribute):
+        ToolTip<public>:message = external {}
+
+        Categories<public>:[]message = external {}
+
+    @attribscope_class
+    @attribscope_struct
+    @attribscope_data
+    @customattribhandler
+    editable_text_box<public> := class<final>(attribute):
+        MultiLine<public>:logic = external {}
+
+        MaxLength<public>:int = external {}
+
+    @attribscope_class
+    @attribscope_struct
+    @attribscope_data
+    @customattribhandler
+    editable_slider<public>(t:type) := class<final>(editable):
+        MinValue<public>:?t = external {}
+
+        MaxValue<public>:?t = external {}
+
+        SliderDelta<public>:?t = external {}
+
+        SliderExponent<public>:?t = external {}
+
+        MouseLinearDeltaSensitivity<public>:float = external {}
+
+        MouseShiftMovePixelPerDelta<public>:float = external {}
+
+    @attribscope_class
+    @attribscope_struct
+    @attribscope_data
+    @customattribhandler
+    editable_number<public>(t:type) := class<final>(editable):
+        MinValue<public>:?t = external {}
+
+        MaxValue<public>:?t = external {}
+
+    @attribscope_class
+    @attribscope_struct
+    @attribscope_data
+    @customattribhandler
+    editable_vector_slider<public>(t:type) := class<final>(editable):
+        ShowPreserveRatio<public>:logic = external {}
+
+        MinComponentValue<public>:?t = external {}
+
+        MaxComponentValue<public>:?t = external {}
+
+        SliderDelta<public>:?t = external {}
+
+        SliderExponent<public>:?t = external {}
+
+        MouseLinearDeltaSensitivity<public>:float = external {}
+
+        MouseShiftMovePixelPerDelta<public>:float = external {}
+
+    @attribscope_class
+    @attribscope_struct
+    @attribscope_data
+    @customattribhandler
+    editable_vector_number<public>(t:type) := class<final>(editable):
+        ShowPreserveRatio<public>:logic = external {}
+
+        MinComponentValue<public>:?t = external {}
+
+        MaxComponentValue<public>:?t = external {}
+
+        SpinBoxDelta<public>:?t = external {}
+
+    @attribscope_class
+    @attribscope_struct
+    @attribscope_data
+    @customattribhandler
+    editable_container<public> := class<final>(editable):
+        AllowReordering<public>:logic = external {}
+
+
+    agent<native><public> := class<unique><epic_internal>:
+
+    localizable_agent<native><epic_internal> := class(localizable_value):
+
+    MakeLocalizableValue<epic_internal>(Agent:agent):localizable_agent = external {}
+
+    player<native><public> := class<unique><persistent><module_scoped_var_weak_map_key><epic_internal>(agent):
+        IsActive<native><public>()<varies><decides>:void
+
+    # Type for which there is a single instance per round.  Use `GetSession` to get the current round's `session` instance. May be used with `weak_map` to implement global variables.
+    # Note: may be changed in a future release to a single instance per game. Round-local behavior should not be relied upon.
+    session<native><public> := class<unique><module_scoped_var_weak_map_key><epic_internal>:
+
+    # Returns the `session` corresponding to the current round.  The result can be used with `weak_map` to implement global variables.
+    # Note: may be changed in a future release to return a single instance per game. Round-local behavior should not be relied upon.
+    GetSession<native><public>()<varies>:session
+
+    # Waits specified number of seconds and then resumes. If `Seconds` = 0.0 then it waits until next tick/frame/update. If `Seconds` = Inf then it waits forever and only calls back if canceled - such as via `race`. If `Seconds` < 0.0 then it completes immediately and does not yield to other aysnc expressions.
+    # Waiting until the next update (0.0) is especially useful in a loop of a coroutine that needs to do some work every update and this yields to other coroutines so that it doesn't hog a processor's resources.
+    # Waiting forever (Inf) will have any expression that follows never be evaluated. Occasionally it is desireable to have a task never complete such as the last expression in a `race` subtask where the task must never win the race though it still may be canceled earlier.
+    # Immediately completing (less than 0) is useful when you want programmatic control over whether an expression yields or not.
+    Sleep<native><public>(Seconds:float)<suspends>:void
+
+    # Get the seconds that have elapsed since the world began simulating
+    GetSimulationElapsedTime<native><public>()<transacts>:float
+
+    team<native><public> := class<unique><epic_internal>:
 
 # Module import path: /Verse.org/Assets
 Assets<public> := module:
@@ -86,10 +164,13 @@ Assets<public> := module:
 
 # Module import path: /Verse.org/ParameterCollections
 ParameterCollections<public> := module:
+    parameter_collection<native><epic_internal> := class:
+        OnPropertyChangedFromVerse<native><epic_internal>(StringParam:string):void
+
 Verse<public> := module:
     using {/Verse.org/Colors}
     # Writes `Message` to a dedicated `Print` log while displaying it in `Color` on the client screen for `Duration` seconds. By default, `Color` is `NamedColors.White` and `Duration` is `2.0` seconds.
-    Print<native><public>(Message:[]char, ?Duration:float = external {}, ?Color:color = external {}):void
+    Print<native><public>(Message:string, ?Duration:float = external {}, ?Color:color = external {}):void
 
     # Writes `Message` to a dedicated `Print` log while displaying it in `Color` on the client screen for `Duration` seconds. By default, `Color` is `NamedColors.White` and `Duration` is `2.0` seconds.
     Print<native><public>(Message:message, ?Duration:float = external {}, ?Color:color = external {}):void
@@ -152,12 +233,12 @@ Verse<public> := module:
         Dispose<public>():void
 
     # Halts the Verse runtime with error `Message`.
-    Err<native><public>(Message:[]char)<computes>:false
+    Err<native><public>(Message:string)<computes>:false
 
     # A *recurring*, successively signaled parametric `event` with a `payload` allowing a simple mechanism to coordinate between concurrent tasks:
     #  * `Await` suspends tasks to wait on this `event`,
     #  * another task `Signal`s this `event` and resumes the suspended tasks in FIFO order.
-    event<native><public>(t:type)<computes> := class(signalable(t), awaitable(t)):
+    event<native><public>(t:type) := class(signalable(t), awaitable(t)):
         # Suspends the current task until another task calls `Signal`.
         # If called during another invocation of `Signal`, the the task will still suspend and resume during the next call to `Signal`.
         Await<native><override>()<suspends>:t
@@ -168,7 +249,7 @@ Verse<public> := module:
         Signal<native><override>(Val:t):void
 
     # A *recurring*, successively signaled event allowing a simple mechanism to coordinate between concurrent tasks.
-    event<public>()<computes> := event(tuple())
+    event<public>() := event(tuple())
 
     # Returns the smallest `int` that is greater than or equal to `Val`.
     # Fails if `not IsFinite(Val)`.
@@ -187,10 +268,10 @@ Verse<public> := module:
     Int<native><public>(Val:float)<varies><decides>:int
 
     # Makes a `string` representation of `Val`.
-    ToString<native><public>(Val:float)<varies>:[]char
+    ToString<native><public>(Val:float)<varies>:string
 
     # Makes a printable `string` representation of `Val`.
-    ToString<native><public>(Val:int)<computes>:[]char
+    ToString<native><public>(Val:int)<computes>:string
 
     # Implemented by classes whose instances can become invalid at runtime.
     invalidatable<native><public> := interface(disposable):
@@ -198,10 +279,10 @@ Verse<public> := module:
         IsValid<public>()<transacts><decides>:void
 
     # A parametric interface combining `awaitable` and `subscribable`.
-    listenable<public>(payload:type)<computes> := interface(awaitable(payload), subscribable(payload)):
+    listenable<public>(payload:type) := interface(awaitable(payload), subscribable(payload)):
 
     # A parameterless interface combining `awaitable` and `subscribable`.
-    listenable<public>()<computes> := listenable(tuple())
+    listenable<public>() := listenable(tuple())
 
     # Used for message localization.
     locale<native><public> := struct<epic_internal>:
@@ -210,13 +291,13 @@ Verse<public> := module:
     message<native><public> := class<epic_internal>:
 
     # Makes a `string` by localizing `Message` based on the current `locale`.
-    Localize<native><public>(Message:message)<varies>:[]char
+    Localize<native><public>(Message:message)<varies>:string
 
     localizable_value<native><epic_internal> := class:
 
     localizable_string<native><epic_internal> := class<internal>(localizable_value):
 
-    MakeLocalizableValue<epic_internal>(V:[]char):localizable_string = external {}
+    MakeLocalizableValue<epic_internal>(V:string):localizable_string = external {}
 
     localizable_int<native><epic_internal> := class<internal>(localizable_value):
 
@@ -230,7 +311,7 @@ Verse<public> := module:
 
     MakeLocalizableValue<epic_internal>(V:message):localizable_message = external {}
 
-    MakeMessageInternal<native><epic_internal>(K:[]char, D:[]char, S:[[]char]localizable_value)<converges>:message
+    MakeMessageInternal<native><epic_internal>(K:string, D:string, S:[string]localizable_value)<converges>:message
 
     # Pi, the ratio of the circumference of a circle to its diameter.
     PiFloat<public>:float = external {}
@@ -361,35 +442,35 @@ Verse<public> := module:
 
     # A parametric interface implemented by events with a `payload` that can be signaled.
     # Can be used with `awaitable`, `subscribable`, or both (see: `listenable`).
-    signalable<public>(payload:type)<computes> := interface:
+    signalable<public>(payload:type) := interface:
         # Concurrently resumes the tasks waiting for this event in `awaitable.Await` and synchronously invokes any callbacks added to this event by `subscribable.Subscribe`.
         Signal<public>(Val:payload):void
 
     # Makes a `string` by concatenating `Separator` between the elements of `Strings`.
-    Join<native><public>(Strings:[][]char, Separator:[]char)<computes>:[]char
+    Join<native><public>(Strings:[]string, Separator:string)<computes>:string
 
     # Returns `String` without modification.
-    ToString<public>(String:[]char)<computes>:[]char = external {}
+    ToString<public>(String:string)<computes>:string = external {}
 
     # Makes a `string` from `Character`.
-    ToString<native><public>(Character:char)<computes>:[]char
+    ToString<native><public>(Character:char)<computes>:string
 
     # A parametric interface implemented by events with a `payload` that can be subscribed to.
     # Matched with `signalable.`
-    subscribable<public>(t:type)<computes> := interface:
+    subscribable<public>(t:type) := interface:
         # Registers `Callback` to be invoked on matching calls to `signable.Signal`.
         # Returns an unsubscriber object. Call `cancelable.Cancel` on the unsubscriber to unregister `Callback`.
         Subscribe<public>(Callback:type {__(:t):void})<transacts>:cancelable
 
     # A parameterless interface implemented by events that can be subscribed to.
-    subscribable<public>()<computes> := subscribable(tuple())
+    subscribable<public>() := subscribable(tuple())
 
 using {/Verse.org/Simulation}
 # Module import path: /Verse.org/Colors
 Colors<public> := module:
     # Represents colors as RGB triples in the ACES 2065-1 color space.
     # Component values are linear (i.e. `*gamma* = 1.0`).
-    color<native><public> := struct<concrete><computes>:
+    color<native><public> := struct<concrete><computes><persistable>:
         @editable
         # Red component of this `color`.
         R<native><public>:float = external {}
@@ -448,7 +529,7 @@ Colors<public> := module:
     #  * #RRGGBB
     #  * #RRGGBBAA
     # An invalid hex string will return `Black`.
-    MakeColorFromHex<native><public>(hexString:[]char)<converges>:color
+    MakeColorFromHex<native><public>(hexString:string)<converges>:color
 
     # Makes an ACES 2065-1 `color` from `Hue`, `Saturation`, and `Value` components.
     # Components use the HSV color model in the sRGB color space. Expected ranges:
@@ -773,21 +854,24 @@ Random<public> := module:
 
     # Makes an `array` with the same elements as `Input` shuffled in a random order.
     Shuffle<public>(Input:[]t where t:type)<transacts>:[]t = external {}
-Concurrency<public> := module:
-    # A parametric interface implemented by events with a `payload` that can be waited on. Matched with `signalable.`
-    awaitable<public>(payload:type)<computes> := interface:
-        # Suspends the current task until resumed by a matching call to `signalable.Signal`. Returns the event `payload`.
-        Await<public>()<suspends>:payload
 
-    awaitable<public>()<computes> := awaitable(void)
-
-    task<native><public>(t:type)<computes> := class<abstract><final>(awaitable(t)):
-        Await<native><override>()<suspends>:t
-
-
+# Module import path: /Verse.org/Native
 Native<public> := module:
     @attribscope_class
     @attribscope_struct
     import_as_attribute<epic_internal> := class(attribute):
 
-    import_as<epic_internal>(importName:[]char)<computes>:import_as_attribute
+    import_as<epic_internal>(importName:string)<computes>:import_as_attribute
+
+# Module import path: /Verse.org/Concurrency
+Concurrency<public> := module:
+    # A parametric interface implemented by events with a `payload` that can be waited on. Matched with `signalable.`
+    awaitable<public>(payload:type) := interface:
+        # Suspends the current task until resumed by a matching call to `signalable.Signal`. Returns the event `payload`.
+        Await<public>()<suspends>:payload
+
+    awaitable<public>() := awaitable(void)
+
+    task<native><public>(t:type) := class<abstract><final>(awaitable(t)):
+        Await<native><override>()<suspends>:t
+
