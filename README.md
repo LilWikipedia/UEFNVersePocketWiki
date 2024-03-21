@@ -39,3 +39,18 @@
 * [Verse Scripting on the Epic Games Dev Community Forums](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
 
 ***
+
+### DISCLAIMER/LICENSE
+
+_Use of the Unreal Engine, Unreal Editor for Fortnite and Verse is governed by_
+_the terms of the Unreal® Engine_ [End User License Agreement](https://www.unrealengine.com/eula).
+
+
+_A majority of this content was taken from [VERSE DOCUMENTATION](https://dev.epicgames.com/documentation/en-us/uefn/verse-code-style-guide-in-unreal-editor-for-fortnite) 
+Such content belongs to EPIC GAMES_
+
+_Verse icon, UEFN, UEFN icon, Unreal Engine, Unreal Engine logo, Fortnite, & Fortnite icon are property of EPIC GAMES_
+
+**This github is not maintained or endorsed by EPIC GAMES.** It is made for educational purposes only.
+
+This wiki was compiled by [Lil Wikipedia](https://allmylinks.com/lilwikipedia)
