@@ -1267,36 +1267,38 @@
 `player_checkpoint_device<public> := class<concrete><final>(creative_device_base):`
 * Used to set an `agent`'s spawn point when activated. This can also clear the `agent`'s inventory.
 
+`FirstActivationEvent<public>:listenable(agent) = external {}`
+* Signaled when this device is first activated by any `agent`.
+* Sends the `agent` that activated this device.
+         
+
+* Signaled each time a new `agent` activates this device.
+* Sends the `agent` that activated this device.
+`FirstActivationPerAgentEvent<public>:listenable(agent) = external {}`
+
+* Enables this device.
+`Enable<public>():void = external {}`
+
+* Disables this device.
+`Disable<public>():void = external {}`
+
+* Registers this checkpoint for `Agent`. This sets the respawn point and can clear `Agent`'s inventory depending on this device's settings. Multiple `agent`s can be registered to this device at one time.
+`Register<public>(Agent:agent):void = external {}`
 
 
-     
->         # Signaled when this device is first activated by any `agent`.
->         # Sends the `agent` that activated this device.
->         FirstActivationEvent<public>:listenable(agent) = external {}
+## real_time_clock_device
+`real_time_clock_device<public> := class<concrete><final>(creative_device_base):`
 
->         # Signaled each time a new `agent` activates this device.
->         # Sends the `agent` that activated this device.
->         FirstActivationPerAgentEvent<public>:listenable(agent) = external {}
+* Used to trigger in game events based on real world time.
 
->         # Enables this device.
->         Enable<public>():void = external {}
+* Signaled when the optional second *Duration* time has been reached.
+`DurationElapsedEvent<public>:listenable(tuple()) = external {}`
 
->         # Disables this device.
->         Disable<public>():void = external {}
+* Signaled when the target time is reached.
+`TimeReachedEvent<public>:listenable(tuple()) = external {}`
 
->         # Registers this checkpoint for `Agent`. This sets the respawn point and can clear `Agent`'s inventory depending on this device's settings. Multiple `agent`s can be registered to this device at one time.
->         Register<public>(Agent:agent):void = external {}
-
->     # Used to trigger in game events based on real world time.
->     real_time_clock_device<public> := class<concrete><final>(creative_device_base):
->         # Signaled when the optional second *Duration* time has been reached.
->         DurationElapsedEvent<public>:listenable(tuple()) = external {}
-
->         # Signaled when the target time is reached.
->         TimeReachedEvent<public>:listenable(tuple()) = external {}
-
->         # Signaled when this device is enabled after the target time has been reached.
->         EnablingAfterTimeReachedEvent<public>:listenable(tuple()) = external {}
+* Signaled when this device is enabled after the target time has been reached.
+`EnablingAfterTimeReachedEvent<public>:listenable(tuple()) = external {}`
 
 >         # Signaled when this device is enabled before the target time has been reached.
 >         EnablingBeforeTimeReachedEvent<public>:listenable(tuple()) = external {}
