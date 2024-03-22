@@ -10,10 +10,13 @@ Naming is crucial for readable and maintainable code. Try to be consistent in th
 * `CreateC`: Create an instance of class c, beginning its logical lifetime.
 * `DestroyC`: End the logic lifetime.
 * `C:c`: If you’re working with a single instance of class c, it’s fine to call it C.
-***
+
 ### **1.2 Don’t**
 * Decorate type names. Just call it `thing`, not `thing_type` or `thing_class`.
 * Decorate enumeration values. Not `color := enum{COLOR_Red, COLOR_Green}`, use `color := enum{Red, Green}`.
+  
+
+***
 
 ## 2. Names
 
@@ -37,6 +40,8 @@ All other names should be PascalCase. Modules, member variables, parameters, met
 * Name parametric types t or thing, where thing explains what the type is supposed to represent. For example: `Send(Payload:payload where payload:type)` You’re sending some parameterized data, `Payload`, of any `payload` type.
 * If there’s more than one parametric type, avoid using single letters, such as `t`, `u`, `g`
 * Never use `_t` suffix.
+
+***
 
 ## 3. Formatting
 
@@ -110,3 +115,4 @@ Follow the same recommendations for brackets, identifiers, and types spacing for
 
 ![3-5](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/7ef50ba4-eae9-47d9-a213-8ba754ad568d)
 
+***
