@@ -1300,31 +1300,39 @@
 * Signaled when this device is enabled after the target time has been reached.
 `EnablingAfterTimeReachedEvent<public>:listenable(tuple()) = external {}`
 
->         # Signaled when this device is enabled before the target time has been reached.
->         EnablingBeforeTimeReachedEvent<public>:listenable(tuple()) = external {}
+* Signaled when this device is enabled before the target time has been reached.
 
->         # Enables this device.
->         Enable<public>():void = external {}
+`EnablingBeforeTimeReachedEvent<public>:listenable(tuple()) = external {}`
 
->         # Disables this device.
->         Disable<public>():void = external {}
+* Enables this device.
+`Enable<public>():void = external {}`
 
->     # Used to move around a building or prop, and customize responses to various collision event types.
->     prop_mover_device<public> := class<concrete><final>(creative_device_base):
->         # Signaled when this device is enabled.
->         EnabledEvent<public>:listenable(tuple()) = external {}
+* Disables this device.
+`Disable<public>():void = external {}`
 
->         # Signaled when this device is disabled.
->         DisabledEvent<public>:listenable(tuple()) = external {}
 
->         # Signaled when the prop movement begins.
->         BeganEvent<public>:listenable(tuple()) = external {}
+## prop_mover_device
+`prop_mover_device<public> := class<concrete><final>(creative_device_base):`
 
->         # Signaled when the prop movement ends.
->         EndedEvent<public>:listenable(tuple()) = external {}
+* Used to move around a building or prop, and customize responses to various collision event types.
 
->         # Signaled when the prop reaches its destination.
->         FinishedEvent<public>:listenable(tuple()) = external {}
+`EnabledEvent<public>:listenable(tuple()) = external {}`
+
+* Signaled when this device is disabled.
+
+`DisabledEvent<public>:listenable(tuple()) = external {}`
+
+* Signaled when the prop movement begins.
+
+`BeganEvent<public>:listenable(tuple()) = external {}`
+
+* Signaled when the prop movement ends.
+
+`EndedEvent<public>:listenable(tuple()) = external {}`
+
+* Signaled when the prop reaches its destination.
+
+`FinishedEvent<public>:listenable(tuple()) = external {}`
 
 >         # Signaled when the prop changes its direction.
 >         MovementModeChangedEvent<public>:listenable(tuple()) = external {}
