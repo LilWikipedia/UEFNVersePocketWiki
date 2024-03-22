@@ -287,3 +287,51 @@ Keep identifier and type together; add a space around the assignment `=` operato
 * Class members should be 'private' in most cases.
 
 * Class and module methods should be scoped as restrictively as possible - `<internal>` or `<private>` where appropriate.
+
+***
+
+# 7. Events
+
+### 7.1 Postfix Events with Event and Prefix Handlers with On
+
+* Subscribable events or delegate list names should be postfixed with 'Event', and event handler names should be prefixed with `On`.
+
+      MyDevice.JumpEvent.Subscribe(OnJump)
+***
+
+# 8. Concurrency
+
+### 8.1 Don’t Decorate Functions with Async
+
+* Avoid decorating `<suspends>` functions with `Async` or similar terms.
+
+* Do:
+
+      DoWork()<suspends>:void
+
+* Don't:
+
+      DoWorkAsync()<suspends>:void
+
+* It’s acceptable to add the `Await` prefix to a `<suspends>` function that internally waits on something to happen. This can clarify how an API is supposed to be used.
+
+      AwaitGameEnd()<suspends>:void=
+        # Setup other things before awaiting game end…
+          GameEndEvent.Await()
+
+      OnBegin()<suspends>:void =
+          race:
+              RunGameLoop()
+              AwaitGameEnd()
+
+
+  ***
+
+  #9. Attributes
+
+  ### 9.1 Separate Attributes
+
+* Put attributes on a **separate** line. It’s more readable, especially if multiple attributes are added to the same identifier. For example:
+
+      @editable
+      MyField:int = 42
