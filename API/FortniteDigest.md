@@ -264,6 +264,8 @@
 
 # creative_devices
 
+## animation_controller
+
 * Animation<public> := module:
 
 * Module import path: `/Fortnite.com/Devices/Animation`
@@ -293,7 +295,7 @@
        
 * Convenience interpolation modes. These built in modes are based on the [CSS animation standard](https://www.w3.org/TR/css-easing-1/)
 
-* InterpolationTypes<public>
+### Interpolation Types
 
 * Convenience interpolation modes. These built in modes are based on the [CSS animation standard](https://www.w3.org/TR/css-easing-1/)
 
@@ -574,6 +576,8 @@
         
 `Hide<native><public>()<transacts>:void`
 
+## creative_prop_asset
+
 * Asset used to spawn `creative_prop` instances.
     
 `creative_prop_asset<native><public> := class<computes><concrete><final><epic_internal>:`
@@ -582,12 +586,11 @@
     
 `DefaultCreativePropAsset<public>:creative_prop_asset = external {}`
 
-* Results for `SpawnProp`.
-`    `
+## SpawnProp
+
 `spawn_prop_result<native><public> := enum:`
 
-
-        
+* Results for `SpawnProp`.
 
 * The spawn point contains NaN or Inf.
         
@@ -620,10 +623,12 @@
     
 `SpawnProp<native><public>(Asset:creative_prop_asset, Transform:transform)<transacts>:tuple(?creative_prop, spawn_prop_result)`
 
-* Payload of `device_event_ai_interaction`.
-    
+## device_event_ai_interaction
+
 `device_ai_interaction_result<native><public> := struct<epic_internal>:`
-        
+
+* Payload of `device_event_ai_interaction`.
+   
 * Optional agent that triggered the interaction
         
 `Source<native><public>:?agent`
@@ -1433,7 +1438,7 @@
 
 `GetTargetDistance<public>()<transacts>:float = external {}`
 
->* Sets the speed (in meters per second) at which the prop will move to its destination.
+* Sets the speed (in meters per second) at which the prop will move to its destination.
 `SetTargetSpeed<public>(Speed:float):void = external {}`
 
 * Returns the speed (in meters per second) at which the prop mover will move the prop to its destination.
@@ -1459,10 +1464,10 @@
 * Signaled if the switch is off when the state is checked.
 `IfOffWhenCheckedEvent<public>:listenable(tuple()) = external {}`
 
-`Signaled when the switch state is saved.`
-* StateSaveEvent<public>:listenable(tuple()) = external {}
+* Signaled when the switch state is saved.
+`StateSaveEvent<public>:listenable(tuple()) = external {}`
 
-*Signaled when the switch state changes.
+* Signaled when the switch state changes.
 `StateChangesEvent<public>:listenable(tuple()) = external {}`
 
 * Signaled when the switch state is loaded by the specified `agent`.
@@ -1489,7 +1494,7 @@
 `ToggleState<public>(Agent:agent):void = external {}`
 
 * Loads the device state with `Agent` acting as the instigator of the action.
-`LoadState<public>(Agent:agent):void = external `
+`LoadState<public>(Agent:agent):void = external {}`
 
 * Saves the device state with `Agent` acting as the instigator of the action.
 `SaveState<public>(Agent:agent):void = external {}`
@@ -1500,7 +1505,7 @@
 * Saves the device state for all players
 `SaveStateForAll<public>():void = external {}`
 
-* Checks the device state with `Agent` acting as the instigator of the action.
+*  Checks the device state with `Agent` acting as the instigator of the action.
 `CheckState<public>(Agent:agent):void = external {}`
 
 * Clears persistence data for `Agent`.
@@ -1551,7 +1556,7 @@
 * Returns the value of *State Reset Time*, in seconds, for the device. Returns -1.0 if *State Reset Time* is not used.
 `GetStateResetTime<public>()<transacts>:float = external {}`
 
-* Returns the value of *State Reset Time*, in seconds, for the device, for a specific player. Returns -1.0 if *State Reset Time* is not used.
+*Returns the value of *State Reset Time*, in seconds, for the device, for a specific player. Returns -1.0 if *State Reset Time* is not used.
 `GetStateResetTime<public>(Agent:agent)<transacts>:float = external {}`
 
 * Returns the time, in seconds, before the switch will reset itself to default.
@@ -1567,73 +1572,66 @@
 `volume_device<public> := class<concrete><final>(creative_device_base):`
 
 * Used to track when agents enter and exit a volume.
->    
+
 * Signaled when an `agent` enters the device volume.
 `AgentEntersEvent<public>:listenable(agent) = external {}`
 
 * Signaled when an `agent` exits the device volume.
 `AgentExitsEvent<public>:listenable(agent) = external {}`
 
-## crash_pad_device
-`crash_pad_device<public> := class<concrete><final>(creative_device_base):`
+>     # Used to place a crash pad that can bounce players and protect them from fall damage.
+>     crash_pad_device<public> := class<concrete><final>(creative_device_base):
+>         # Signaled when an `agent` is launched by this device.
+>         # Sends the launched `agent`.
+>         LaunchedEvent<public>:listenable(agent) = external {}
 
-* Used to place a crash pad that can bounce players and protect them from fall damage.
->     
-* Signaled when an `agent` is launched by this device.
-* Sends the launched `agent`.
-`LaunchedEvent<public>:listenable(agent) = external {}`
+>         # Enables this device.
+>         Enable<public>():void = external {}
 
-* Enables this device.
-`Enable<public>():void = external {}`
+>         # Disables this device.
+>         Disable<public>():void = external {}
 
-* Disables this device.
-`Disable<public>():void = external {}`
+>     # Used to add fishing mechanics to experiences, such as:
+>     #  * Fishing competitions between players.
+>     #  * Collecting fish as a resource.
+>     #  * Fishing minigames with their own rewards.
+>     fishing_zone_device<public> := class<concrete><final>(creative_device_base):
+>         # Signaled when an `agent` catches a fish.
+>         # Sends the `agent` that caught the fish.
+>         CaughtEvent<public>:listenable(agent) = external {}
 
-## fishing_zone_device
-`fishing_zone_device<public> := class<concrete><final>(creative_device_base):`
+>         # Signaled when all items have been caught and removed.
+>         # Sends the `agent` that caught the last fish.
+>         EmptyEvent<public>:listenable(agent) = external {}
 
-* Used to add fishing mechanics to experiences
-    
-* Signaled when an `agent` catches a fish.
-* Sends the `agent` that caught the fish.
-`CaughtEvent<public>:listenable(agent) = external {}
+>         # Enables this device.
+>         Enable<public>():void = external {}
 
-* Signaled when all items have been caught and removed.
-* Sends the `agent` that caught the last fish.
-`EmptyEvent<public>:listenable(agent) = external {}`
+>         # Disables this device.
+>         Disable<public>():void = external {}
 
-* Enables this device.
-`Enable<public>():void = external {}`
+>         # Resets the number of available uses for this device back to *Uses Allowed*.
+>         Reset<public>():void = external {}
 
-* Disables this device.
-`Disable<public>():void = external {}`
+>         # Returns all caught and removed items to the inventory. This only works when *Pool Type* is set to *Device Inventory*.
+>         Restock<public>():void = external {}
 
-* Resets the number of available uses for this device back to *Uses Allowed*.
-`Reset<public>():void = external {}`
+>     # Used to show or hide parts of the HUD for players or teams. Use this with other devices such as the `hud_message_device`, `map_indicator_device`, and `billboard_device` to control exactly how much information players can see during a game, as well as how and when they see that information.
+>     hud_controller_device<public> := class<concrete><final>(creative_device_base):
+>         # Enables this device.
+>         Enable<public>():void = external {}
 
-* Returns all caught and removed items to the inventory. This only works when *Pool Type* is set to *Device Inventory*.
-`Restock<public>():void = external {}`
+>         # Disables this device.
+>         Disable<public>():void = external {}
 
-## hud_controller_device
-`hud_controller_device<public> := class<concrete><final>(creative_device_base):`
+>         # Sets the *Affected Class* option to `Agent`'s class.
+>         UpdateAffectedClass<public>(Agent:agent):void = external {}
 
-* Used to show or hide parts of the HUD for players or teams.
-* Use this with other devices such as the `hud_message_device`, `map_indicator_device`, and `billboard_device` to control the HUD in various ways.
-     
-* Enables this device.
-`Enable<public>():void = external {}`
+>         # Sets the *Affected Team* option to `Agent`'s team.
+>         UpdateAffectedTeam<public>(Agent:agent):void = external {}
 
-* Disables this device.
-`Disable<public>():void = external {}`
-
-* Sets the *Affected Class* option to `Agent`'s class.
-`UpdateAffectedClass<public>(Agent:agent):void = external {}`
-
-* Sets the *Affected Team* option to `Agent`'s team.
-`UpdateAffectedTeam<public>(Agent:agent):void = external {}`
-
-* Resets the *Affected Class* option to its starting value.
-`ResetAffectedClass<public>():void = external {}`
+>         # Resets the *Affected Class* option to its starting value.
+>         ResetAffectedClass<public>():void = external {}
 
 >         # Resets the *Affected Team* option to its starting value.
 >         ResetAffectedTeam<public>():void = external {}
