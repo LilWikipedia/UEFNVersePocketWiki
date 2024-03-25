@@ -51,31 +51,47 @@
 `player_ui_slot<native><public> := struct:`
             
 * Controls `widget` rendering order. Greater values will be draw in front of lesser values.
+
 `ZOrder<native><public>:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}`
 
 * Controls `widget` input event consumption.
+
 `InputMode<native><public>:ui_input_mode = external {}`
 
 * `widget` input consumption mode.
+
 `ui_input_mode<native><public> := enum:`
+
 * `widget` does not consume any input.
+
 `None`
+
 * `widget` consumes all inputs
+
 `All`
 
 * Parameters for `event`s signalled by a `widget`.
+
 `widget_message<native><public> := struct:`
- * The `player` that triggered the `event`.
+ 
+* The `player` that triggered the `event`.
+
 `Player<native><public>:player`
 
 * The `widget` that triggered the `event`.
+
 `Source<native><public>:widget`
 
 * Used by `widget.SetVisibility` determine how a `widget` is shown in the user interface.
+
 `widget_visibility<native><public> := enum:`
+
 * The `widget` is visible and occupies layout space.
+
 `Visible`
+
 * The `widget` is invisible and does not occupy layout space.
+
 `Collapsed`
 * The `widget` is invisible and occupies layout space.
 `Hidden`
@@ -150,21 +166,29 @@
 `OnClick<public>():listenable(widget_message) = external {}`
 
 * Slot for button widget.
+
 `button_slot<native><public> := struct:`
+
 * The widget assigned to this slot.
+
 `Widget<native><public>:widget`
 
 *Horizontal alignment of the widget inside the slot.
+
 `HorizontalAlignment<native><public>:horizontal_alignment = external {}`
 
 * Vertical alignment of the widget inside the slot.
+
 `VerticalAlignment<native><public>:vertical_alignment = external {}`
 
 * Empty distance in pixels that surrounds the widget inside the slot. Assumes 1080p resolution.
+
 `Padding<native><public>:margin = external {}`
 
 ## canvas
+
 `canvas<native><public> := class<final>(widget):`
+
 * Canvas is a container widget that allows for arbitrary positioning of widgets in the canvas' slots.
         
 * The child widgets of the canvas. Used only during initialization of the widget and not modified by Add/RemoveWidget.
@@ -202,34 +226,41 @@
 `Widget<native><public>:widget`
 
 * Make a canvas slot for fixed position widget.
+
 * If Size is set, then the Offsets is calculated and the SizeToContent is set to false.
+
 * If Size is not set, then Right and Bottom are set to zero and are not used. The widget size will be automatically calculated. The SizeToContent is set to true.
+
 * The widget is not anchored and will not move if the parent is resized.
+
 * The Anchors is set to zero.
-`MakeCanvasSlot<native><public>(Widget:widget, Position:vector2, ?Size:vector2 = external {}, ?ZOrder:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}, ?Alignment:vector2 = external {})<computes>:canvas_slot`
 
-        # A solid color widget.
-        color_block<native><public> := class<final>(widget):
-            # The color of the widget. Used only during initialization of the widget and not modified by SetColor.
-            DefaultColor<native><public>:color = external {}
+`MakeCanvasSlot<native><public>(Widget:widget, Position:vector2, ?Size:vector2 = external {}, ?ZOrder:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}, ?Alignment:vector2 = external {})<computes>:canvas_slot`b
 
-            # The opacity of the widget. Used only during initialization of the widget and not modified by SetOpacity.
-            DefaultOpacity<native><public>:type {_X:float where 0.000000 <= _X, _X <= 1.000000} = external {}
+## color_block
+`color_block<native><public> := class<final>(widget):`
+* A solid color widget.
+        
+* The color of the widget. Used only during initialization of the widget and not modified by SetColor.
+`DefaultColor<native><public>:color = external {}`
 
-            # The size this widget desired to be displayed in. Used only during initialization of the widget and not modified by SetDesiredSize.
-            DefaultDesiredSize<native><public>:vector2 = external {}
+* The opacity of the widget. Used only during initialization of the widget and not modified by SetOpacity.
+`DefaultOpacity<native><public>:type {_X:float where 0.000000 <= _X, _X <= 1.000000} = external {}`
 
-            # Sets the widget's color.
-            SetColor<native><public>(InColor:color):void
+* The size this widget desired to be displayed in. Used only during initialization of the widget and not modified by SetDesiredSize.
+`DefaultDesiredSize<native><public>:vector2 = external {}`
 
-            # Gets the widget's color.
-            GetColor<native><public>():color
+* Sets the widget's color.
+`SetColor<native><public>(InColor:color):void`
 
-            # Sets the widgets's opacity.
-            SetOpacity<native><public>(InOpacity:type {_X:float where 0.000000 <= _X, _X <= 1.000000}):void
+* Gets the widget's color.
+`GetColor<native><public>():color`
 
-            # Gets the widget's opacity.
-            GetOpacity<native><public>():type {_X:float where 0.000000 <= _X, _X <= 1.000000}
+* Sets the widgets's opacity.
+`SetOpacity<native><public>(InOpacity:type {_X:float where 0.000000 <= _X, _X <= 1.000000}):void`
+
+* Gets the widget's opacity.
+`GetOpacity<native><public>():type {_X:float where 0.000000 <= _X, _X <= 1.000000}`
 
             # Sets the size this widget desired to be displayed in.
             SetDesiredSize<native><public>(InDesiredSize:vector2):void
