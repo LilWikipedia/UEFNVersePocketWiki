@@ -154,56 +154,59 @@
 * The widget assigned to this slot.
 `Widget<native><public>:widget`
 
-            # Horizontal alignment of the widget inside the slot.
-            HorizontalAlignment<native><public>:horizontal_alignment = external {}
+*Horizontal alignment of the widget inside the slot.
+`HorizontalAlignment<native><public>:horizontal_alignment = external {}`
 
-            # Vertical alignment of the widget inside the slot.
-            VerticalAlignment<native><public>:vertical_alignment = external {}
+* Vertical alignment of the widget inside the slot.
+`VerticalAlignment<native><public>:vertical_alignment = external {}`
 
-            # Empty distance in pixels that surrounds the widget inside the slot. Assumes 1080p resolution.
-            Padding<native><public>:margin = external {}
+* Empty distance in pixels that surrounds the widget inside the slot. Assumes 1080p resolution.
+`Padding<native><public>:margin = external {}`
 
-        # Canvas is a container widget that allows for arbitrary positioning of widgets in the canvas' slots.
-        canvas<native><public> := class<final>(widget):
-            # The child widgets of the canvas. Used only during initialization of the widget and not modified by Add/RemoveWidget.
-            Slots<native><public>:[]canvas_slot = external {}
+## canvas
+`canvas<native><public> := class<final>(widget):`
+* Canvas is a container widget that allows for arbitrary positioning of widgets in the canvas' slots.
+        
+* The child widgets of the canvas. Used only during initialization of the widget and not modified by Add/RemoveWidget.
+`Slots<native><public>:[]canvas_slot = external {}`
 
-            # Adds a new child slot to the canvas.
-            AddWidget<native><public>(Slot:canvas_slot):void
+* Adds a new child slot to the canvas.
+`AddWidget<native><public>(Slot:canvas_slot):void`
 
-            # Removes a slot containing the given widget.
-            RemoveWidget<native><public>(Widget:widget):void
+* Removes a slot containing the given widget.
+`RemoveWidget<native><public>(Widget:widget):void`
 
-        # Slot for a canvas widget.
-        canvas_slot<native><public> := struct:
-            # The border for the margin and how the widget is resized with its parent.
-            # Values are defined between 0.0 and 1.0.
-            Anchors<native><public>:anchors = external {}
+* Slot for a canvas widget.
+`canvas_slot<native><public> := struct:`
+            
+* The border for the margin and how the widget is resized with its parent.
+* Values are defined between 0.0 and 1.0.
+`Anchors<native><public>:anchors = external {}`
 
-            # The offset that defined the size and position of the widget.
-            # When the anchors are well defined, the Offsets.Left represent the distance in pixels from the Anchors Minimum.X, the Offsets.Bottom represent the distance in pixel from the Anchors Maximum.Y, effectively controlling the desired widget size. When the anchors are not well defined, the Offsets.Left and Offsets.Top represent the widget position and Offsets.Right and Offset.Bottom represent the widget size.
-            Offsets<native><public>:margin = external {}
+* The offset that defined the size and position of the widget.
+* When the anchors are well defined, the Offsets.Left represent the distance in pixels from the Anchors Minimum.X, the Offsets.Bottom represent the distance in pixel from the Anchors Maximum.Y, effectively controlling the desired widget size. When the anchors are not well defined, the Offsets.Left and Offsets.Top represent the widget position and Offsets.Right and Offset.Bottom represent the widget size.
+`Offsets<native><public>:margin = external {}`
 
-            # When true we use the widget's desired size. The size calculated by the Offsets is ignored.
-            SizeToContent<native><public>:logic = external {}
+* When true we use the widget's desired size. The size calculated by the Offsets is ignored.
+`SizeToContent<native><public>:logic = external {}`
 
-            # Alignment is the pivot/origin point of the widget.
-            # Starting in the upper left at (0.0,0.0), ending in the lower right at (1.0,1.0).
-            Alignment<native><public>:vector2 = external {}
+* Alignment is the pivot/origin point of the widget.
+* Starting in the upper left at (0.0,0.0), ending in the lower right at (1.0,1.0).
+`Alignment<native><public>:vector2 = external {}`
 
-            # Z Order of this slot relative to other slots in this canvas panel.
-            # Higher values are rendered last (and so they will appear to be on top)
-            ZOrder<native><public>:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}
+* Z Order of this slot relative to other slots in this canvas panel.
+* Higher values are rendered last (and so they will appear to be on top)
+`ZOrder<native><public>:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}`
 
-            # The widget assigned to this slot.
-            Widget<native><public>:widget
+* The widget assigned to this slot.
+`Widget<native><public>:widget`
 
-        # Make a canvas slot for fixed position widget.
-        # If Size is set, then the Offsets is calculated and the SizeToContent is set to false.
-        # If Size is not set, then Right and Bottom are set to zero and are not used. The widget size will be automatically calculated. The SizeToContent is set to true.
-        # The widget is not anchored and will not move if the parent is resized.
-        # The Anchors is set to zero.
-        MakeCanvasSlot<native><public>(Widget:widget, Position:vector2, ?Size:vector2 = external {}, ?ZOrder:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}, ?Alignment:vector2 = external {})<computes>:canvas_slot
+* Make a canvas slot for fixed position widget.
+* If Size is set, then the Offsets is calculated and the SizeToContent is set to false.
+* If Size is not set, then Right and Bottom are set to zero and are not used. The widget size will be automatically calculated. The SizeToContent is set to true.
+* The widget is not anchored and will not move if the parent is resized.
+* The Anchors is set to zero.
+`MakeCanvasSlot<native><public>(Widget:widget, Position:vector2, ?Size:vector2 = external {}, ?ZOrder:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}, ?Alignment:vector2 = external {})<computes>:canvas_slot`
 
         # A solid color widget.
         color_block<native><public> := class<final>(widget):
