@@ -1,157 +1,158 @@
-# Copyright Epic Games, Inc. All Rights Reserved.
-#################################################
-# Generated Digest of Verse API
-# DO NOT modify this manually!
-# Generated from build: ++Fortnite+Release-29.00-CL-32116959
-#################################################
+# UI
+`ui<public> := module:`
+   
 
-# Module import path: /UnrealEngine.com/Assets
-Assets<public> := module:
-Temporary<public> := module:
-    using {/Verse.org/Assets}
-    using {/Verse.org/Colors}
-    using {/UnrealEngine.com/Temporary/SpatialMath}
-    using {/Verse.org/Simulation}
-    # Module import path: /UnrealEngine.com/Temporary/UI
-    UI<public> := module:
-        # Returns the `player_ui` vk_component associated with `Player`.
-        # Fails if there is no `player_ui` associated with `Player`.
-        GetPlayerUI<native><public>(Player:player)<transacts><decides>:player_ui
+## GetPlayerUI
+* Returns the `player_ui` vk_component associated with `Player`.
+* Fails if there is no `player_ui` associated with `Player`.
+`GetPlayerUI<native><public>(Player:player)<transacts><decides>:player_ui`
 
-        # The main interface for adding and removing `widget`s to a player's UI.
-        player_ui<native><public> := class<final><epic_internal>:
-            # Adds `Widget` to this `player_ui` using default `player_ui_slot` configuration options.
-            AddWidget<native><public>(Widget:widget):void
+## player_ui
+* The main interface for adding and removing `widget`s to a player's UI.
+`player_ui<native><public> := class<final><epic_internal>:`
 
-            # Adds `Widget` to this `player_ui` using `Slot` for configuration options.
-            AddWidget<native><public>(Widget:widget, Slot:player_ui_slot):void
+## widget
+`widget<native><public> := class<abstract><unique><epic_internal>:`
+* Base class for all UI elements drawn on the `player`'s screen.
 
-            # Removes `Widget` from this `player_ui`.
-            RemoveWidget<native><public>(Widget:widget):void
 
-        # Base class for all UI elements drawn on the `player`'s screen.
-        widget<native><public> := class<abstract><unique><epic_internal>:
-            # Shows or hides the `widget` without removing itself from the containing `player_ui`.
-            # See `widget_visibility` for details.
-            SetVisibility<native><public>(InVisibility:widget_visibility):void
+* Shows or hides the `widget` without removing itself from the containing `player_ui`.
+`SetVisibility<native><public>(InVisibility:widget_visibility):void`
 
-            # Returns the current `widget_visibility` state.
-            GetVisibility<native><public>():widget_visibility
+* Returns the current `widget_visibility` state.
+`GetVisibility<native><public>():widget_visibility`
 
-            # Enables or disables whether the `player` can interact with this `widget`.
-            SetEnabled<native><public>(InIsEnabled:logic):void
+* Enables or disables whether the `player` can interact with this `widget`.
+`SetEnabled<native><public>(InIsEnabled:logic):void`
 
-            # `true` if this `widget` can be modified interactively by the player.
-            IsEnabled<native><public>():logic
+* `true` if this `widget` can be modified interactively by the player.
+`IsEnabled<native><public>():logic`
 
-            # Returns the `widget`'s parent `widget`.
-            # Fails if no parent exists, such as if this `widget` is not in the `player_ui` or is itself the root `widget`.
-            GetParentWidget<native><public>()<transacts><decides>:widget
+* Returns the `widget`'s parent `widget`.
+* Fails if no parent exists, such as if this `widget` is not in the `player_ui` or is itself the root `widget`.
+`GetParentWidget<native><public>()<transacts><decides>:widget`
 
-            # Returns the `widget` that added this `widget` to the `player_ui`. The root `widget` will return itself.
-            # Fails if this `widget` is not in the `player_ui`.
-            GetRootWidget<native><public>()<transacts><decides>:widget
+* Returns the `widget` that added this `widget` to the `player_ui`. The root `widget` will return itself.
+* Fails if this `widget` is not in the `player_ui`.
+`GetRootWidget<native><public>()<transacts><decides>:widget`
 
-        # `widget` creation configuration options.
-        player_ui_slot<native><public> := struct:
-            # Controls `widget` rendering order. Greater values will be draw in front of lesser values.
-            ZOrder<native><public>:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}
+### AddWidget
+* Adds `Widget` to this `player_ui` using default `player_ui_slot` configuration options.
+`AddWidget<native><public>(Widget:widget):void`
 
-            # Controls `widget` input event consumption.
-            InputMode<native><public>:ui_input_mode = external {}
+* Adds `Widget` to this `player_ui` using `Slot` for configuration options.
+`AddWidget<native><public>(Widget:widget, Slot:player_ui_slot):void`
 
-        # `widget` input consumption mode.
-        ui_input_mode<native><public> := enum:
-            # `widget` does not consume any input.
-            None
-            # `widget` consumes all inputs
-            All
+* Removes `Widget` from this `player_ui`.
+`RemoveWidget<native><public>(Widget:widget):void`
 
-        # Parameters for `event`s signalled by a `widget`.
-        widget_message<native><public> := struct:
-            # The `player` that triggered the `event`.
-            Player<native><public>:player
+### widget configuration options.
 
-            # The `widget` that triggered the `event`.
-            Source<native><public>:widget
+`player_ui_slot<native><public> := struct:`
+            
+* Controls `widget` rendering order. Greater values will be draw in front of lesser values.
+`ZOrder<native><public>:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}`
 
-        # Used by `widget.SetVisibility` determine how a `widget` is shown in the user interface.
-        widget_visibility<native><public> := enum:
-            # The `widget` is visible and occupies layout space.
-            Visible
-            # The `widget` is invisible and does not occupy layout space.
-            Collapsed
-            # The `widget` is invisible and occupies layout space.
-            Hidden
+* Controls `widget` input event consumption.
+`InputMode<native><public>:ui_input_mode = external {}`
 
-        # Used by`widget` orientation modes.
-        orientation<native><public> := enum:
-            # Orient `widget`s from left to right.
-            Horizontal
-            # Orient `widget`s from top to bottom.
-            Vertical
+* `widget` input consumption mode.
+`ui_input_mode<native><public> := enum:`
+* `widget` does not consume any input.
+`None`
+* `widget` consumes all inputs
+`All`
 
-        # `widget` horizontal alignment mode.
-        horizontal_alignment<native><public> := enum:
-            # Center `widget` horizontally within the slot.
-            Center
-            # Align `widget` to the left of the slot.
-            Left
-            # Align `widget` to the right of the slot.
-            Right
-            # `widget` fills the slot horizontally.
-            Fill
+* Parameters for `event`s signalled by a `widget`.
+`widget_message<native><public> := struct:`
+ * The `player` that triggered the `event`.
+`Player<native><public>:player`
 
-        # `widget` vertical alignment mode.
-        vertical_alignment<native><public> := enum:
-            # Center `widget` vertically within the slot.
-            Center
-            # Align `widget` to the top of the slot.
-            Top
-            # Align `widget` to the bottom of the slot.
-            Bottom
-            # `widget` fills the slot vertically.
-            Fill
+* The `widget` that triggered the `event`.
+`Source<native><public>:widget`
 
-        # The anchors of a `widget` determine its the position and sizing relative to its parent.
-        # `anchor`s range from `(0.0, 0.0)` (left, top) to `(1.0, 1.0)` (right, bottom).
-        anchors<native><public> := struct:
-            # Holds the minimum anchors, (left, top). The valid range is between `0.0` and `1.0`.
-            Minimum<native><public>:vector2 = external {}
+* Used by `widget.SetVisibility` determine how a `widget` is shown in the user interface.
+`widget_visibility<native><public> := enum:`
+* The `widget` is visible and occupies layout space.
+`Visible`
+* The `widget` is invisible and does not occupy layout space.
+`Collapsed`
+* The `widget` is invisible and occupies layout space.
+`Hidden`
 
-            # Holds the maximum anchors, (right, bottom). The valid range is between `0.0` and `1.0`.
-            Maximum<native><public>:vector2 = external {}
+* Used by`widget` orientation modes.
+`alignment<native><public> := enum:`
+* Orient `widget`s from left to right.
+`Horizontal`
+* Orient `widget`s from top to bottom.
+`Vertical`
 
-        # Specifies the gap outside each edge separating a `widget` from its neighbors.
-        # Distance is measured in units where `1.0` unit is the width of a pixel at 1080p resolution.
-        margin<native><public> := struct:
-            # The left edge spacing.
-            Left<native><public>:float = external {}
+* `widget` horizontal alignment mode.
+`horizontal_alignment<native><public> := enum:`
+* Center `widget` horizontally within the slot.
+`Center`
+* Align `widget` to the left of the slot.
+`Left`
+* Align `widget` to the right of the slot.
+  `Right`
+* `widget` fills the slot horizontally.
+`Fill`
 
-            # The top edge spacing.
-            Top<native><public>:float = external {}
+* `widget` vertical alignment mode.
+`vertical_alignment<native><public> := enum:`
+* Center `widget` vertically within the slot.
+`Center`
+* Align `widget` to the top of the slot.
+`Top`
+* Align `widget` to the bottom of the slot.
+`Bottom`
+* `widget` fills the slot vertically.
+`Fill`
 
-            # The right edge spacing.
-            Right<native><public>:float = external {}
+* The anchors of a `widget` determine its the position and sizing relative to its parent.
+* `anchor`s range from `(0.0, 0.0)` (left, top) to `(1.0, 1.0)` (right, bottom).
+`anchors<native><public> := struct:`
 
-            # The bottom edge spacing.
-            Bottom<native><public>:float = external {}
 
-        # Button is a container of a single child widget slot and fires the OnClick event when the button is clicked.
-        button<native><public> := class<final>(widget):
-            # The child widget of the button. Used only during initialization of the widget and not modified by SetSlot.
-            Slot<native><public>:button_slot
+* Holds the minimum anchors, (left, top). The valid range is between `0.0` and `1.0`.
+`Minimum<native><public>:vector2 = external {}`
 
-            # Sets the child widget slot.
-            SetWidget<native><public>(InSlot:button_slot):void
+* Holds the maximum anchors, (right, bottom). The valid range is between `0.0` and `1.0`.
+`Maximum<native><public>:vector2 = external {}`
 
-            # Subscribable event that fires when the button is clicked.
-            OnClick<public>():listenable(widget_message) = external {}
+* Specifies the gap outside each edge separating a `widget` from its neighbors.
+* Distance is measured in units where `1.0` unit is the width of a pixel at 1080p resolution.
+`margin<native><public> := struct:`
+* The left edge spacing.
+`Left<native><public>:float = external {}`
 
-        # Slot for button widget.
-        button_slot<native><public> := struct:
-            # The widget assigned to this slot.
-            Widget<native><public>:widget
+* The top edge spacing.
+`Top<native><public>:float = external {}`
+
+* The right edge spacing.
+`Right<native><public>:float = external {}`
+
+* The bottom edge spacing.
+`Bottom<native><public>:float = external {}`
+
+## button
+`button<native><public> := class<final>(widget):`
+
+* Button is a container of a single child widget slot and fires the OnClick event when the button is clicked.
+        
+* The child widget of the button. Used only during initialization of the widget and not modified by SetSlot.
+`Slot<native><public>:button_slot`
+
+* Sets the child widget slot.
+`SetWidget<native><public>(InSlot:button_slot):void`
+
+* Subscribable event that fires when the button is clicked.
+`OnClick<public>():listenable(widget_message) = external {}`
+
+* Slot for button widget.
+`button_slot<native><public> := struct:`
+* The widget assigned to this slot.
+`Widget<native><public>:widget`
 
             # Horizontal alignment of the widget inside the slot.
             HorizontalAlignment<native><public>:horizontal_alignment = external {}
