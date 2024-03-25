@@ -4,7 +4,7 @@
 ![uefnicon](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/fe7cbe1e-1b77-49b4-b4aa-a6c6866882ce)
 ![fortnite icon 256](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/16c1ae8d-0299-4f94-81dd-8c8997188c76)
 ***
-# Programming with Verse
+ **Programming with Verse**
 
 * Create your own rules and behaviors for your game by programming with Verse in UEFN!
 * This guide provides a set of recommended standards for writing consistent code that's easy to maintain. 
@@ -13,7 +13,7 @@
 
 ***
 
-***
+# Syntax
 
 ## [1. Common Naming Patterns](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/1.-Common-Naming-Patterns)
 ## [2. Names](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/2.-Names)
@@ -25,32 +25,24 @@
 ## [8. Concurrency](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/8.-Concurrency)
 ## [9. Attributes](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/9.-Attributes)
 ## [Importing Expressions or Modules](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Importing-Expressions-or-Modules)
-***
-
 
 ***
+# API
 
-## More Resources
+## [1. Fortnite Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Fortnite-Digest)
 
-* [Verse Programming in Unreal Editor for Fortnite (UEFN) Onboarding Guide](https://dev.epicgames.com/documentation/en-us/uefn/onboarding-guide-to-programming-with-verse-in-unreal-editor-for-fortnite)
-* [Learn Programming with Verse](https://dev.epicgames.com/documentation/en-us/uefn/learn-programming-with-verse-in-unreal-editor-for-fortnite)
-* [Verse Language Reference](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)
-* [Verse Framework API](https://dev.epicgames.com/documentation/en-us/uefn/verse-api) - also look at the `.digest.verse` files included in this repository and with your Verse projects
-* [Verse Scripting on the Epic Games Dev Community Forums](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
+## 2. Unreal Engine Digest
+
+## 3. Verse Digest
 
 ***
 
-### DISCLAIMER/LICENSE
+# More Resources
 
-_Use of the Unreal Engine, Unreal Editor for Fortnite and Verse is governed by_
-_the terms of the Unreal® Engine_ [End User License Agreement](https://www.unrealengine.com/eula).
+## [1. Verse Onboarding Guide](https://dev.epicgames.com/documentation/en-us/uefn/onboarding-guide-to-programming-with-verse-in-unreal-editor-for-fortnite)
+## [2. Programming with Verse](https://dev.epicgames.com/documentation/en-us/uefn/learn-programming-with-verse-in-unreal-editor-for-fortnite)
+## [3. Language Reference](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)
+## [4. Official API](https://dev.epicgames.com/documentation/en-us/uefn/verse-api)
+## [5. Verse Scripting](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
 
-
-_A majority of this content was taken from [VERSE DOCUMENTATION](https://dev.epicgames.com/documentation/en-us/uefn/verse-code-style-guide-in-unreal-editor-for-fortnite) 
-Such content belongs to EPIC GAMES_
-
-_Verse icon, UEFN, UEFN icon, Unreal Engine, Unreal Engine logo, Fortnite, & Fortnite icon are property of EPIC GAMES_
-
-**This github is not maintained or endorsed by EPIC GAMES.** It is made for educational purposes only.
-
-This wiki was compiled by [Lil Wikipedia](https://allmylinks.com/lilwikipedia)
+***
