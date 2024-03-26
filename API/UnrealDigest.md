@@ -93,76 +93,118 @@
 * The `widget` is invisible and does not occupy layout space.
 
 `Collapsed`
+
 * The `widget` is invisible and occupies layout space.
+
 `Hidden`
 
 * Used by`widget` orientation modes.
+
 `alignment<native><public> := enum:`
+
 * Orient `widget`s from left to right.
+
 `Horizontal`
+
 * Orient `widget`s from top to bottom.
+
 `Vertical`
 
 * `widget` horizontal alignment mode.
+
 `horizontal_alignment<native><public> := enum:`
+
 * Center `widget` horizontally within the slot.
+
 `Center`
+
 * Align `widget` to the left of the slot.
+
 `Left`
+
 * Align `widget` to the right of the slot.
-  `Right`
+
+`Right`
+
 * `widget` fills the slot horizontally.
+
 `Fill`
+
 
 * `widget` vertical alignment mode.
+
 `vertical_alignment<native><public> := enum:`
+
 * Center `widget` vertically within the slot.
+
 `Center`
+
 * Align `widget` to the top of the slot.
+
 `Top`
+
 * Align `widget` to the bottom of the slot.
+
 `Bottom`
+
 * `widget` fills the slot vertically.
+
 `Fill`
 
+
 * The anchors of a `widget` determine its the position and sizing relative to its parent.
+
 * `anchor`s range from `(0.0, 0.0)` (left, top) to `(1.0, 1.0)` (right, bottom).
+
 `anchors<native><public> := struct:`
 
 
 * Holds the minimum anchors, (left, top). The valid range is between `0.0` and `1.0`.
+
 `Minimum<native><public>:vector2 = external {}`
 
 * Holds the maximum anchors, (right, bottom). The valid range is between `0.0` and `1.0`.
+
 `Maximum<native><public>:vector2 = external {}`
 
 * Specifies the gap outside each edge separating a `widget` from its neighbors.
+
 * Distance is measured in units where `1.0` unit is the width of a pixel at 1080p resolution.
+
 `margin<native><public> := struct:`
+
 * The left edge spacing.
+
 `Left<native><public>:float = external {}`
 
 * The top edge spacing.
+
 `Top<native><public>:float = external {}`
 
 * The right edge spacing.
+
 `Right<native><public>:float = external {}`
 
 * The bottom edge spacing.
+
 `Bottom<native><public>:float = external {}`
 
 ## button
+
 `button<native><public> := class<final>(widget):`
 
 * Button is a container of a single child widget slot and fires the OnClick event when the button is clicked.
         
 * The child widget of the button. Used only during initialization of the widget and not modified by SetSlot.
+
 `Slot<native><public>:button_slot`
 
 * Sets the child widget slot.
+
 `SetWidget<native><public>(InSlot:button_slot):void`
 
 * Subscribable event that fires when the button is clicked.
+
 `OnClick<public>():listenable(widget_message) = external {}`
 
 * Slot for button widget.
@@ -192,37 +234,52 @@
 * Canvas is a container widget that allows for arbitrary positioning of widgets in the canvas' slots.
         
 * The child widgets of the canvas. Used only during initialization of the widget and not modified by Add/RemoveWidget.
+
 `Slots<native><public>:[]canvas_slot = external {}`
 
 * Adds a new child slot to the canvas.
+
 `AddWidget<native><public>(Slot:canvas_slot):void`
 
 * Removes a slot containing the given widget.
+
 `RemoveWidget<native><public>(Widget:widget):void`
 
 * Slot for a canvas widget.
+
 `canvas_slot<native><public> := struct:`
             
 * The border for the margin and how the widget is resized with its parent.
+
 * Values are defined between 0.0 and 1.0.
+
 `Anchors<native><public>:anchors = external {}`
 
 * The offset that defined the size and position of the widget.
+
 * When the anchors are well defined, the Offsets.Left represent the distance in pixels from the Anchors Minimum.X, the Offsets.Bottom represent the distance in pixel from the Anchors Maximum.Y, effectively controlling the desired widget size. When the anchors are not well defined, the Offsets.Left and Offsets.Top represent the widget position and Offsets.Right and Offset.Bottom represent the widget size.
+
+
 `Offsets<native><public>:margin = external {}`
 
 * When true we use the widget's desired size. The size calculated by the Offsets is ignored.
+
 `SizeToContent<native><public>:logic = external {}`
 
 * Alignment is the pivot/origin point of the widget.
+
 * Starting in the upper left at (0.0,0.0), ending in the lower right at (1.0,1.0).
+
 `Alignment<native><public>:vector2 = external {}`
 
 * Z Order of this slot relative to other slots in this canvas panel.
+
 * Higher values are rendered last (and so they will appear to be on top)
+
 `ZOrder<native><public>:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}`
 
 * The widget assigned to this slot.
+
 `Widget<native><public>:widget`
 
 * Make a canvas slot for fixed position widget.
@@ -238,294 +295,453 @@
 `MakeCanvasSlot<native><public>(Widget:widget, Position:vector2, ?Size:vector2 = external {}, ?ZOrder:type {_X:int where 0 <= _X, _X <= 2147483647} = external {}, ?Alignment:vector2 = external {})<computes>:canvas_slot`b
 
 ## color_block
+
 `color_block<native><public> := class<final>(widget):`
+
 * A solid color widget.
         
 * The color of the widget. Used only during initialization of the widget and not modified by SetColor.
+
 `DefaultColor<native><public>:color = external {}`
 
 * The opacity of the widget. Used only during initialization of the widget and not modified by SetOpacity.
+
 `DefaultOpacity<native><public>:type {_X:float where 0.000000 <= _X, _X <= 1.000000} = external {}`
 
 * The size this widget desired to be displayed in. Used only during initialization of the widget and not modified by SetDesiredSize.
+
 `DefaultDesiredSize<native><public>:vector2 = external {}`
 
 * Sets the widget's color.
+
 `SetColor<native><public>(InColor:color):void`
 
 * Gets the widget's color.
+
 `GetColor<native><public>():color`
 
 * Sets the widgets's opacity.
+
 `SetOpacity<native><public>(InOpacity:type {_X:float where 0.000000 <= _X, _X <= 1.000000}):void`
 
 * Gets the widget's opacity.
+
 `GetOpacity<native><public>():type {_X:float where 0.000000 <= _X, _X <= 1.000000}`
 
-            # Sets the size this widget desired to be displayed in.
-            SetDesiredSize<native><public>(InDesiredSize:vector2):void
+* Sets the size this widget desired to be displayed in.
 
-            # Gets the size this widget desired to be displayed in.
-            GetDesiredSize<native><public>():vector2
+`SetDesiredSize<native><public>(InDesiredSize:vector2):void`
 
-        # Tiling options values
-        image_tiling<native><public> := enum:
-            # Stretch the image to fit the available space.
-            Stretch
-            # Repeat/Wrap the image to fill the available space.
-            Repeat
+* Gets the size this widget desired to be displayed in.
 
-        # A widget to display a texture.
-        texture_block<native><public> := class(widget):
-            # The image to render. Used only during initialization of the widget and not modified by SetImage.
-            DefaultImage<native><public>:texture
+`GetDesiredSize<native><public>():vector2`
 
-            # Tinting applied to the image. Used only during initialization of the widget and not modified by SetTint.
-            DefaultTint<native><public>:color = external {}
+##  image_tiling
 
-            # The size this widget desired to be displayed in. Used only during initialization of the widget and not modified by SetDesiredSize.
-            DefaultDesiredSize<native><public>:vector2 = external {}
+`image_tiling<native><public> := enum:`
 
-            # The horizontal tiling option. Used only during initialization of the widget and not modified by SetTiling.
-            DefaultHorizontalTiling<native><public>:image_tiling = external {}
+* Tiling options values
+            
+* Stretch the image to fit the available space.
 
-            # The vertical tiling option. Used only during initialization of the widget and not modified by SetTiling.
-            DefaultVerticalTiling<native><public>:image_tiling = external {}
+`Stretch`
+            
+* Repeat/Wrap the image to fill the available space.
 
-            # Sets the image to render.
-            SetImage<native><public>(InImage:texture):void
+`Repeat`
 
-            # Gets the image to render.
-            GetImage<native><public>():texture
+ ## texture_block
 
-            # Sets the tint applied to the image.
-            SetTint<native><public>(InColor:color):void
-
-            # Gets the tint applied to the image.
-            GetTint<native><public>():color
-
-            # Sets the size this widget desired to be displayed in.
-            SetDesiredSize<native><public>(InDesiredSize:vector2):void
+ `texture_block<native><public> := class(widget):`
+        
+* A widget to display a texture.
+        
+* The image to render. Used only during initialization of the widget and not modified by SetImage.
 
-            # Gets the size this widget desired to be displayed in.
-            GetDesiredSize<native><public>():vector2
+`DefaultImage<native><public>:texture`
 
-            # Sets the tiling option when the image is smaller than the allocated size.
-            SetTiling<native><public>(InHorizontalTiling:image_tiling, InVerticalTiling:image_tiling):void
+* Tinting applied to the image. Used only during initialization of the widget and not modified by SetTint.
 
-            # Gets the tiling option.
-            GetTiling<native><public>():tuple(image_tiling, image_tiling)
+`DefaultTint<native><public>:color = external {}`
 
-        # Overlay is a container consisting of widgets stacked on top of each other.
-        overlay<native><public> := class<final>(widget):
-            # The child widgets of the overlay. Used only during initialization of the widget and not modified by Add/RemoveWidget.
-            Slots<native><public>:[]overlay_slot = external {}
+ * The size this widget desired to be displayed in. Used only during initialization of the widget and not modified by SetDesiredSize.
 
-            # Add a new child slot to the overlay. Slots are added at the end.
-            AddWidget<native><public>(Slot:overlay_slot):void
+`DefaultDesiredSize<native><public>:vector2 = external {}`
 
-            # Removes a slot containing the given widget
-            RemoveWidget<native><public>(Widget:widget):void
+* The horizontal tiling option. Used only during initialization of the widget and not modified by SetTiling.
 
-        # Slot for an overlay widget
-        overlay_slot<native><public> := struct:
-            # The widget assigned to this slot.
-            Widget<native><public>:widget
+`DefaultHorizontalTiling<native><public>:image_tiling = external {}`
 
-            # Horizontal alignment of the widget inside the slot.
-            # This alignment is only applied after the layout space for the widget slot is created and determines the widget alignment within that space.
-            HorizontalAlignment<native><public>:horizontal_alignment = external {}
+* The vertical tiling option. Used only during initialization of the widget and not modified by SetTiling.
 
-            # Vertical alignment of the widget inside the slot.
-            # This alignment is only applied after the layout space for the widget slot is created and determines the widget alignment within that space.
-            VerticalAlignment<native><public>:vertical_alignment = external {}
+`DefaultVerticalTiling<native><public>:image_tiling = external {}`
 
-            # Empty distance in pixels that surrounds the widget inside the slot. Assumes 1080p resolution.
-            Padding<native><public>:margin = external {}
+* Sets the image to render.
 
-        # Stack box is a container of a list of widgets stacked either vertically or horizontally.
-        stack_box<native><public> := class<final>(widget):
-            # The child widgets of the stack box. Used only during initialization of the widget and not modified by Add/RemoveWidget.
-            Slots<native><public>:[]stack_box_slot = external {}
+`SetImage<native><public>(InImage:texture):void`
 
-            # The orientation of the stack box. Either stack widgets horizontal or vertical.
-            Orientation<native><public>:orientation
+* Gets the image to render.
 
-            # Add a new child slot to the stack box. Slots are added at the end.
-            AddWidget<native><public>(Slot:stack_box_slot):void
+`GetImage<native><public>():texture`
 
-            # Removes a slot containing the given widget
-            RemoveWidget<native><public>(Widget:widget):void
+* Sets the tint applied to the image.
+`SetTint<native><public>(InColor:color):void`
 
-        # Slot for a stack_box widget
-        stack_box_slot<native><public> := struct:
-            # The widget assigned to this slot.
-            Widget<native><public>:widget
+* Gets the tint applied to the image.
 
-            # Horizontal alignment of the widget inside the slot.
-            # This alignment is only applied after the layout space for the widget slot is created and determines the widget alignment within that space.
-            HorizontalAlignment<native><public>:horizontal_alignment = external {}
-
-            # Vertical alignment of the widget inside the slot.
-            # This alignment is only applied after the layout space for the widget slot is created and determines the widget alignment within that space.
-            VerticalAlignment<native><public>:vertical_alignment = external {}
+`GetTint<native><public>():color`
 
-            # Empty distance in pixels that surrounds the widget inside the slot. Assumes 1080p resolution.
-            Padding<native><public>:margin = external {}
+* Sets the size this widget desired to be displayed in.
 
-            # The available space will be distributed proportionally.
-            # If not set, the slot will use the desired size of the widget.
-            Distribution<native><public>:?float = external {}
+`SetDesiredSize<native><public>(InDesiredSize:vector2):void`
 
-        # Text justification values:
-        #   Left: Justify the text logically to the left based on current culture.
-        #   Center: Justify the text in the center.
-        #   Right: Justify the text logically to the right based on current culture.
-        # The Left and Right value will flip when the local culture is right-to-left.
-        text_justification<native><public> := enum:
-            Left
-            Center
-            Right
-            InvariantLeft
-            InvariantRight
+* Gets the size this widget desired to be displayed in.
 
-        # Text overflow policy values:
-        #   Clip: Overflowing text will be clipped.
-        #   Ellipsis: Overflowing text will be replaced with an ellipsis.
-        text_overflow_policy<native><public> := enum:
-            Clip
-            Ellipsis
+`GetDesiredSize<native><public>():vector2`
 
-        # Base widget for text widget.
-        text_base<native><public> := class<abstract>(widget):
-            # The text to display to the user. Used only during initialization of the widget and not modified by SetText.
-            DefaultText<native><localizes><public>:message = external {}
+* Sets the tiling option when the image is smaller than the allocated size.
 
-            # The color of the displayed text. Used only during initialization of the widget and not modified by SetTextColor.
-            DefaultTextColor<native><public>:color = external {}
+`SetTiling<native><public>(InHorizontalTiling:image_tiling, InVerticalTiling:image_tiling):void`
 
-            # The opacity of the displayed text. Used only during initialization of the widget and not modified by SetTextOpacity.
-            DefaultTextOpacity<native><public>:type {_X:float where 0.000000 <= _X, _X <= 1.000000} = external {}
+* Gets the tiling option.
 
-            # The justification to display to the user. Used only during initialization of the widget and not modified by SetJustification.
-            DefaultJustification<native><public>:text_justification = external {}
+`GetTiling<native><public>():tuple(image_tiling, image_tiling)`
 
-            # The policy that determine what happens when the text is longer than its allowed length.
-            # Used only during initialization of the widget and not modified by SetOverflowPolicy.
-            DefaultOverflowPolicy<native><public>:text_overflow_policy = external {}
+##  overlay
 
-            # Sets the text displayed in the widget.
-            SetText<native><public>(InText:message):void
+` overlay<native><public> := class<final>(widget):`
 
-            # Gets the text currently in the widget.
-            GetText<native><public>():string
+* Overlay is a container consisting of widgets stacked on top of each other.
+       
+* The child widgets of the overlay. Used only during initialization of the widget and not modified by Add/RemoveWidget.
 
-            # Sets the text justification in the widget.
-            SetJustification<native><public>(InJustification:text_justification):void
+`Slots<native><public>:[]overlay_slot = external {}`
 
-            # Gets the text justification in the widget.
-            GetJustification<native><public>():text_justification
+* Add a new child slot to the overlay. Slots are added at the end.
 
-            # Sets the policy that determine what happens when the text is longer than its allowed length.
-            SetOverflowPolicy<native><public>(InOverflowPolicy:text_overflow_policy):void
+`AddWidget<native><public>(Slot:overlay_slot):void`
 
-            # Gets the policy that determine what happens when the text is longer than its allowed length.
-            GetOverflowPolicy<native><public>():text_overflow_policy
+* Removes a slot containing the given widget
 
-            # Sets the color of the displayed text.
-            SetTextColor<native><public>(InColor:color):void
+`RemoveWidget<native><public>(Widget:widget):void`
 
-            # Gets the color of the displayed text.
-            GetTextColor<native><public>():color
+* Slot for an overlay widget
 
-            # Sets the opacity of the displayed text.
-            SetTextOpacity<native><public>(InOpacity:type {_X:float where 0.000000 <= _X, _X <= 1.000000}):void
+`overlay_slot<native><public> := struct:`
+         
+* The widget assigned to this slot.
 
-            # Gets the opacity of the displayed text.
-            GetTextOpacity<native><public>():type {_X:float where 0.000000 <= _X, _X <= 1.000000}
+`Widget<native><public>:widget`
 
-    # Module import path: /UnrealEngine.com/Temporary/Diagnostics
-    Diagnostics<public> := module:
-        # Enumerated presets for policies describing a desired draw duration.
-        debug_draw_duration_policy<native><public> := enum:
-            SingleFrame
-            FiniteDuration
-            Persistent
+* Horizontal alignment of the widget inside the slot.
 
-        # debug_draw_channel is the base class used to define debug draw channels.
-        debug_draw_channel<native><public> := class<abstract>:
+* This alignment is only applied after the layout space for the widget slot is created and determines the widget alignment within that space.
 
-        # debug draw class to draw debug shapes on screen.
-        debug_draw<native><public> := class:
-            # Channel will be used to clear specific debug draw.
-            Channel<native><public>:subtype(debug_draw_channel) = external {}
+`HorizontalAlignment<native><public>:horizontal_alignment = external {}`
 
-            # Show Debug Draw for the channel for all users.
-            ShowChannel<native><public>()<transacts>:void
+* Vertical alignment of the widget inside the slot.
 
-            # Hide Debug Draw for the channel for all users.
-            HideChannel<native><public>()<transacts>:void
+* This alignment is only applied after the layout space for the widget slot is created and determines the widget alignment within that space.
 
-            # Clears all debug draw for the channel.
-            ClearChannel<native><public>()<transacts>:void
+`VerticalAlignment<native><public>:vertical_alignment = external {}`
 
-            # Clears all debug draw from this debug_draw instance.
-            Clear<native><public>()<transacts>:void
+* Empty distance in pixels that surrounds the widget inside the slot. Assumes 1080p resolution.
 
-            # Draws a sphere at the named location, and using the provided draw parameters.
-            DrawSphere<native><public>(Center:vector3, ?Radius:float = external {}, ?Color:color = external {}, ?NumSegments:int = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void
+`Padding<native><public>:margin = external {}`
 
-            # Draws a box at the named location, and using the provided draw parameters
-            DrawBox<native><public>(Center:vector3, Rotation:rotation, ?Extent:vector3 = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void
+## stack_box
 
-            # Draws a capsule at the named location, and using the provided draw parameters.
-            DrawCapsule<native><public>(Center:vector3, Rotation:rotation, ?Height:float = external {}, ?Radius:float = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void
+* Stack box is a container of a list of widgets stacked either vertically or horizontally.
 
-            # Draws a cone at the named location, and using the provided draw parameters.
-            DrawCone<native><public>(Origin:vector3, Direction:vector3, ?Height:float = external {}, ?NumSides:int = external {}, ?AngleWidthRadians:float = external {}, ?AngleHeightRadians:float = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void
+`stack_box<native><public> := class<final>(widget):`
+            
+* The child widgets of the stack box. Used only during initialization of the widget and not modified by Add/RemoveWidget.
 
-            # Draws a cylinder at the named location, and using the provided draw parameters.
-            DrawCylinder<native><public>(Start:vector3, End:vector3, ?NumSegments:int = external {}, ?Radius:float = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void
+`Slots<native><public>:[]stack_box_slot = external {}`
 
-            # Draws a line from Start to End locations, and using the provided draw parameters.
-            DrawLine<native><public>(Start:vector3, End:vector3, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void
+* The orientation of the stack box. Either stack widgets horizontal or vertical.
 
-            # Draws a point at the named location, and using the provided draw parameters.
-            DrawPoint<native><public>(Position:vector3, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void
+`Orientation<native><public>:orientation`
 
-            # Draws an arrow pointing from Start to End locations, and using the provided draw parameters.
-            DrawArrow<native><public>(Start:vector3, End:vector3, ?ArrowSize:float = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void
+* Add a new child slot to the stack box. Slots are added at the end.
 
-        # log levels available for various log commands
-        log_level<native><public> := enum:
-            Debug
-            Verbose
-            Normal
-            Warning
-            Error
+`AddWidget<native><public>(Slot:stack_box_slot):void`
 
-        # log_channel is the base class used to define log channels. When printing a message to a log, the log channel class name will be prefixed to the output message.
-        log_channel<native><public> := class<abstract>:
+* Removes a slot containing the given widget
 
-        # log class to send messages to the default log
-        log<native><public> := class:
-            # Channel class name will be added as a prefix used when printing the message e.g. '[log_channel]: #Message
-            Channel<native><public>:subtype(log_channel)
+`RemoveWidget<native><public>(Widget:widget):void`
 
-            # Sets the default log level of the displayed message. See log_level enum for more info on log levels. Defaults to log_level.Normal.
-            DefaultLevel<native><public>:log_level = external {}
+* Slot for a stack_box widget
 
-            # Print message using the given log level
-            (log:)Print<native><public>(Message:string, ?Level:log_level = external {})<computes>:void
+`stack_box_slot<native><public> := struct:`
+            
+* The widget assigned to this slot.
 
-            # Prints current script call stack using the give log level
-            PrintCallStack<native><public>(?Level:log_level = external {})<computes>:void
+`Widget<native><public>:widget`
 
-    # Module import path: /UnrealEngine.com/Temporary/Curves
-    Curves<public> := module:
-        editable_curve<native><public> := class<final><concrete>:
-            # Evaluates this float curve at the specified time and returns the result as a float
-            Evaluate<native><public>(Time:float):float
+* Horizontal alignment of the widget inside the slot.
+
+* This alignment is only applied after the layout space for the widget slot is created and determines the widget alignment within that space.
+
+`HorizontalAlignment<native><public>:horizontal_alignment = external {}`
+
+* Vertical alignment of the widget inside the slot.
+
+* This alignment is only applied after the layout space for the widget slot is created and determines the widget alignment within that space.
+
+`VerticalAlignment<native><public>:vertical_alignment = external {}`
+
+* Empty distance in pixels that surrounds the widget inside the slot. Assumes 1080p resolution.
+
+`Padding<native><public>:margin = external {}`
+
+* The available space will be distributed proportionally.
+
+* If not set, the slot will use the desired size of the widget.
+
+`Distribution<native><public>:?float = external {}`
+
+##  text_justification
+
+` text_justification<native><public> := enum:`
+   
+* Text justification
+   
+* The Left and Right value will flip when the local culture is right-to-left.
+       
+`Left`
+
+`Center`
+            
+`Right`
+            
+`InvariantLeft`
+            
+`InvariantRight`
+
+## text_overflow_policy
+
+`text_overflow_policy<native><public> := enum:`
+
+* Text overflow policy values:
+   
+`Clip`
+            
+`Ellipsis`
+
+##  text_base
+
+` text_base<native><public> := class<abstract>(widget):`
+
+* Base widget for text widget.
+
+## DefaultText
+
+`DefaultText<native><localizes><public>:message = external {}`
+       
+* The text to display to the user. Used only during initialization of the widget and not modified by SetText.
+            
+* The color of the displayed text. Used only during initialization of the widget and not modified by SetTextColor.
+
+`DefaultTextColor<native><public>:color = external {}`
+
+* The opacity of the displayed text. Used only during initialization of the widget and not modified by SetTextOpacity.
+
+`DefaultTextOpacity<native><public>:type {_X:float where 0.000000 <= _X, _X <= 1.000000} = external {}`
+
+* The justification to display to the user. Used only during initialization of the widget and not modified by SetJustification.
+
+`DefaultJustification<native><public>:text_justification = external {}`
+
+* The policy that determine what happens when the text is longer than its allowed length.
+
+* Used only during initialization of the widget and not modified by SetOverflowPolicy.
+
+`DefaultOverflowPolicy<native><public>:text_overflow_policy = external {}`
+
+##  SetText
+
+`SetText<native><public>(InText:message):void`
+
+* Sets the text displayed in the widget.
+
+* Gets the text currently in the widget.
+
+`GetText<native><public>():string`
+
+* Sets the text justification in the widget.
+
+`SetJustification<native><public>(InJustification:text_justification):void`
+
+* Gets the text justification in the widget.
+
+`GetJustification<native><public>():text_justification`
+
+* Sets the policy that determine what happens when the text is longer than its allowed length.
+
+`SetOverflowPolicy<native><public>(InOverflowPolicy:text_overflow_policy):void`
+
+* Gets the policy that determine what happens when the text is longer than its allowed length.
+
+`GetOverflowPolicy<native><public>():text_overflow_policy`
+
+* Sets the color of the displayed text.
+
+`SetTextColor<native><public>(InColor:color):void`
+
+* Gets the color of the displayed text.
+
+`GetTextColor<native><public>():color`
+
+* Sets the opacity of the displayed text.
+
+`SetTextOpacity<native><public>(InOpacity:type {_X:float where 0.000000 <= _X, _X <= 1.000000}):void`
+
+* Gets the opacity of the displayed text.
+
+`GetTextOpacity<native><public>():type {_X:float where 0.000000 <= _X, _X <= 1.000000}`
+
+#  Diagnostics
+
+`Diagnostics<public> := module:`
+
+`Module import path: /UnrealEngine.com/Temporary/Diagnostics`
+
+## debug_draw
+
+`debug_draw<native><public> := class:`
+   
+* Enumerated presets for policies describing a desired draw duration.
+
+`debug_draw_duration_policy<native><public> := enum:`
+
+`SingleFrame`
+            
+`FiniteDuration`
+            
+`Persistent`
+
+##  debug_draw_channel
+
+`debug_draw_channel<native><public> := class<abstract>:`
+
+* debug_draw_channel is the base class used to define debug draw channels.
+       
+* debug draw class to draw debug shapes on screen.
+       
+* Channel will be used to clear specific debug draw.
+
+`Channel<native><public>:subtype(debug_draw_channel) = external {}`
+
+* Show Debug Draw for the channel for all users.
+
+`ShowChannel<native><public>()<transacts>:void`
+
+* Hide Debug Draw for the channel for all users.
+
+`HideChannel<native><public>()<transacts>:void`
+
+* Clears all debug draw for the channel.
+
+`ClearChannel<native><public>()<transacts>:void`
+
+* Clears all debug draw from this debug_draw instance.
+
+`Clear<native><public>()<transacts>:void`
+
+# draw
+
+`Draw<native><public>`
+
+* Draws using provided parameters.
+
+* Draws a sphere at the named location, and using the provided draw parameters.
+
+`DrawSphere<native><public>(Center:vector3, ?Radius:float = external {}, ?Color:color = external {}, ?NumSegments:int = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void`
+
+* Draws a box at the named location, and using the provided draw parameters
+
+`DrawBox<native><public>(Center:vector3, Rotation:rotation, ?Extent:vector3 = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void`
+
+* Draws a capsule at the named location, and using the provided draw parameters.
+
+`DrawCapsule<native><public>(Center:vector3, Rotation:rotation, ?Height:float = external {}, ?Radius:float = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void`
+
+* Draws a cone at the named location, and using the provided draw parameters.
+
+`DrawCone<native><public>(Origin:vector3, Direction:vector3, ?Height:float = external {}, ?NumSides:int = external {}, ?AngleWidthRadians:float = external {}, ?AngleHeightRadians:float = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void`
+
+* Draws a cylinder at the named location, and using the provided draw parameters.
+
+`DrawCylinder<native><public>(Start:vector3, End:vector3, ?NumSegments:int = external {}, ?Radius:float = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void`
+
+* Draws a line from Start to End locations, and using the provided draw parameters.
+
+`DrawLine<native><public>(Start:vector3, End:vector3, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void`
+
+* Draws a point at the named location, and using the provided draw parameters.
+
+`DrawPoint<native><public>(Position:vector3, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void`
+
+* Draws an arrow pointing from Start to End locations, and using the provided draw parameters.
+
+`DrawArrow<native><public>(Start:vector3, End:vector3, ?ArrowSize:float = external {}, ?Color:color = external {}, ?Thickness:float = external {}, ?DrawDurationPolicy:debug_draw_duration_policy = external {}, ?Duration:float = external {})<transacts>:void`
+
+## log_level
+
+`log_level<native><public> := enum:`
+
+* log levels available for various log commands
+        
+  `Debug`
+
+  `Verbose`
+
+  `Normal`
+
+  `Warning`
+
+  `Error`
+
+##  log_channel
+
+`log_channel<native><public> := class<abstract>:`
+        
+* log_channel is the base class used to define log channels. When printing a message to a log, the log channel class name will be prefixed to the output message.
+
+## log
+
+`log<native><public> := class:`       
+
+* log class to send messages to the default log
+        
+* Channel class name will be added as a prefix used when printing the message e.g. '[log_channel]: #Message
+
+`Channel<native><public>:subtype(log_channel)`
+
+* Sets the default log level of the displayed message. See log_level enum for more info on log levels. Defaults to log_level.Normal.
+
+`DefaultLevel<native><public>:log_level = external {}`
+
+* Print message using the given log level
+
+`(log:)Print<native><public>(Message:string, ?Level:log_level = external {})<computes>:void`
+
+* Prints current script call stack using the give log level
+
+`PrintCallStack<native><public>(?Level:log_level = external {})<computes>:void`
+
+## Curves
+
+`Curves<public> := module:`
+
+`Module import path: /UnrealEngine.com/Temporary/Curves`
+    
+`editable_curve<native><public> := class<final><concrete>:`
+            
+* Evaluates this float curve at the specified time and returns the result as a float
+
+`Evaluate<native><public>(Time:float):float`
 
 
     using {/Verse.org/Native}
