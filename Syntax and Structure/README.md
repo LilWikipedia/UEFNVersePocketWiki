@@ -1,6 +1,6 @@
 ***
 # Table of Contents
-
+## [Importing Expressions or Modules](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Importing-Expressions-or-Modules)
 ## [1. Common Naming Patterns](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/1.-Common-Naming-Patterns)
 ## [2. Names](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/2.-Names)
 ## [3. Formatting](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/3.-Formatting)
@@ -10,13 +10,28 @@
 ## [7. Events](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/7.-Events)
 ## [8. Concurrency](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/8.-Concurrency)
 ## [9. Attributes](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/9.-Attributes)
-## [Importing Expressions or Modules](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Importing-Expressions-or-Modules)
+
 ***
+## Importing Expressions or Modules
+
+### Sort Import Expressions Alphabetically
+
+* For example:
+
+      using { /EpicGames.com/Temporary/Diagnostics }
+      using { /EpicGames.com/Temporary/SpatialMath }
+      using { /EpicGames.com/Temporary/UI }
+      using { /Fortnite.com/UI }
+      using { /Verse.org/Simulation }
+
+* Shipped modules can be found in each of the `.digests` documents.
+
+* Modules can also be custom written for specific use cases and imported.
 
 
 # 1. Common Naming Patterns
 
-Naming is crucial for readable and maintainable code. Try to be consistent in the naming style throughout your code.
+* Naming is crucial for readable and maintainable code. Try to be consistent in the naming style throughout your code.
 
 ### **1.1 Do**
 * `IsX`: Often used for naming logic variables to ask a question (for example, `IsEmpty`).
