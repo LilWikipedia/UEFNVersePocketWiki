@@ -2287,19 +2287,19 @@
 * Sends the `agent` who alerted the sentry.
 `AlertedEvent<public>:listenable(agent) = external {}`
 
->         # Signaled when the sentry exists the alert state.
->         ExitsAlertEvent<public>:listenable(tuple()) = external {}
+* Signaled when the sentry exists the alert state.
+`ExitsAlertEvent<public>:listenable(tuple()) = external {}`
 
->         # Signaled when the sentry enters the alert state.
->         EntersAlertCooldownEvent<public>:listenable(tuple()) = external {}
+* Signaled when the sentry enters the alert state.
+`EntersAlertCooldownEvent<public>:listenable(tuple()) = external {}`
 
->         # Signaled when a sentry attacks an `agent`.
->         # Sends the `agent` who is being attacked.
->         AttackingEvent<public>:listenable(agent) = external {}
+* Signaled when a sentry attacks an `agent`.
+* Sends the `agent` who is being attacked.
+`AttackingEvent<public>:listenable(agent) = external {}`
 
->         # Signaled when a sentry is eliminated.
->         # Sends the `agent` that eliminated the sentry. If the sentry was eliminated by a non-agent then `false` is returned.
->         EliminatedEvent<public>:listenable(?agent) = external {}
+* Signaled when a sentry is eliminated.
+* Sends the `agent` that eliminated the sentry. If the sentry was eliminated by a non-agent then `false` is returned.
+`EliminatedEvent<public>:listenable(?agent) = external {}`
 
 >         # Signaled when the sentry eliminates a creature.
 >         EliminatingACreatureEvent<public>:listenable(tuple()) = external {}
