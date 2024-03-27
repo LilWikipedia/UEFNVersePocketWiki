@@ -32,7 +32,7 @@
 
 ## [1. Fortnite Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Fortnite-Digest)
 
-## 2. Unreal Engine Digest
+## [2. Unreal Engine Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Unreal-Engine-Digest)
 
 ## 3. Verse Digest
 
