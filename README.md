@@ -15,6 +15,7 @@
 
 # Syntax
 
+## [Importing Expressions or Modules](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Importing-Expressions-or-Modules)
 ## [1. Common Naming Patterns](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/1.-Common-Naming-Patterns)
 ## [2. Names](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/2.-Names)
 ## [3. Formatting](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/3.-Formatting)
@@ -24,7 +25,7 @@
 ## [7. Events](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/7.-Events)
 ## [8. Concurrency](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/8.-Concurrency)
 ## [9. Attributes](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/9.-Attributes)
-## [Importing Expressions or Modules](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Importing-Expressions-or-Modules)
+
 
 ***
 # API
