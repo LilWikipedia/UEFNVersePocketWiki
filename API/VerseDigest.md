@@ -1,137 +1,148 @@
-# Copyright Epic Games, Inc. All Rights Reserved.
-#################################################
-# Generated Digest of Verse API
-# DO NOT modify this manually!
-# Generated from build: ++Fortnite+Release-29.00-CL-32116959
-#################################################
+# Simulation
 
-Simulation<public> := module:
-    # Module import path: /Verse.org/Simulation/Tags
-    Tags<public> := module:
-        # A single gameplay tag, which represents a hierarchical name of the form x.y that is registered in the GameplayTagsManager You can filter the gameplay tags displayed in the editor.
-        tag<native><public> := class<abstract>:
+`Simulation<public> := module:`
+`Tags<public> := module:`
 
-        # A queryable collection of gameplay tags.
-        tag_view<native><public> := interface<epic_internal>:
-            # Determine if TagToCheck is present in this container, also checking against parent tags {"A.1"}.Has("A") will return True, {"A"}.Has("A.1") will return False If TagToCheck is not Valid it will always return False.
-            Has<public>(TagToCheck:tag)<transacts><decides>:void
+## tags
 
-            # Checks if this container contains ANY of the tags in the specified container, also checks against parent tags {"A.1"}.HasAny({"A","B"}) will return True, {"A"}.HasAny({"A.1","B"}) will return False If InTags is empty/invalid it will always return False.
-            HasAny<public>(InTags:[]tag)<transacts><decides>:void
+`Tags<public> := module:`
 
-            # Checks if this container contains ALL of the tags in the specified container, also checks against parent tags {"A.1","B.1"}.HasAll({"A","B"}) will return True, {"A","B"}.HasAll({"A.1","B.1"}) will return False If InTags is empty/invalid it will always return True, because there were no failed checks.
-            HasAll<public>(InTags:[]tag)<transacts><decides>:void
+ * A single gameplay tag, which represents a hierarchical name of the form x.y that is registered in the GameplayTagsManager You can filter the gameplay tags displayed in the editor.
 
-        tag_search_sort_type<native><public> := enum:
-            Unsorted
-            Sorted
+`tag<native><public> := class<abstract>:`
+  
+##  tag_view
 
-        # Advanced tag search criteria
-        tag_search_criteria<native><public> := class:
-            # Tags required to be on the object.
-            RequiredTags<native><public>:[]tag = external {}
+` tag_view<native><public> := interface<epic_internal>:`
+       
+* A queryable collection of gameplay tags.
+   
+###  Has<public>(TagToCheck:tag)<transacts><decides>:void
 
-            # Tags that are used if no required tags are specified. These are treated as if any of them will do.
-            PreferredTags<native><public>:[]tag = external {}
+* Determine if TagToCheck is present in this container, also checking against parent tags {"A.1"}.Has("A") will return True, {"A"}.Has("A.1") will return False If TagToCheck is not Valid it will always return False.
+           
+###  HasAny<public>(InTags:[]tag)<transacts><decides>:void
 
-            # Tags that may NOT be on the object. All items with these tags are excluded from the search.
-            ExclusionTags<native><public>:[]tag = external {}
+* Checks if this container contains ANY of the tags in the specified container, also checks against parent tags {"A.1"}.HasAny({"A","B"}) will return True, {"A"}.HasAny({"A.1","B"}) will return False If InTags is empty/invalid it will always return False.
+           
+### HasAll<public>(InTags:[]tag)<transacts><decides>:void
 
-            # Flag to request sorting the results by tag.
-            SortType<native><public>:tag_search_sort_type = external {}
+* Checks if this container contains ALL of the tags in the specified container, also checks against parent tags {"A.1","B.1"}.HasAll({"A","B"}) will return True, {"A","B"}.HasAll({"A.1","B.1"}) will return False If InTags is empty/invalid it will always return True, because there were no failed checks.
+            
+##  tag_search
 
-    @attribscope_class
-    @attribscope_struct
-    @attribscope_data
-    @customattribhandler
-    editable<public> := class(attribute):
+### tag_search_sort_type<native><public> := enum:
+
+* Unsorted
+* Sorted
+
+### tag_search_criteria<native><public> := class:
+* Advanced tag search criteria
+       
+* Tags required to be on the object.
+`RequiredTags<native><public>:[]tag = external {}`
+
+ * Tags that are used if no required tags are specified. These are treated as if any of them will do.
+ `PreferredTags<native><public>:[]tag = external {}`
+
+* Tags that may NOT be on the object. All items with these tags are excluded from the search.
+`ExclusionTags<native><public>:[]tag = external {}`
+
+* Flag to request sorting the results by tag.
+`SortType<native><public>:tag_search_sort_type = external {}`
+
+      @attribscope_class
+      @attribscope_struct
+      @attribscope_data
+      @customattribhandler
+      editable<public> := class(attribute):
         ToolTip<public>:message = external {}
 
         Categories<public>:[]message = external {}
 
-    @attribscope_class
-    @attribscope_struct
-    @attribscope_data
-    @customattribhandler
-    editable_text_box<public> := class<final>(attribute):
-        MultiLine<public>:logic = external {}
+      @attribscope_class
+      @attribscope_struct
+      @attribscope_data
+      @customattribhandler
+      editable_text_box<public> := class<final>(attribute):
+          MultiLine<public>:logic = external {}
 
-        MaxLength<public>:int = external {}
+          MaxLength<public>:int = external {}
 
-    @attribscope_class
-    @attribscope_struct
-    @attribscope_data
-    @customattribhandler
-    editable_slider<public>(t:type) := class<final>(editable):
-        MinValue<public>:?t = external {}
+      @attribscope_class
+      @attribscope_struct
+      @attribscope_data
+      @customattribhandler
+      editable_slider<public>(t:type) := class<final>(editable):
+          MinValue<public>:?t = external {}
 
-        MaxValue<public>:?t = external {}
+          MaxValue<public>:?t = external {}
 
-        SliderDelta<public>:?t = external {}
+          SliderDelta<public>:?t = external {}
 
-        SliderExponent<public>:?t = external {}
+          SliderExponent<public>:?t = external {}
 
-        MouseLinearDeltaSensitivity<public>:float = external {}
+          MouseLinearDeltaSensitivity<public>:float = external {}
+
+          MouseShiftMovePixelPerDelta<public>:float = external {}
+
+      @attribscope_class
+      @attribscope_struct
+      @attribscope_data
+      @customattribhandler
+      editable_number<public>(t:type) := class<final>(editable):
+          MinValue<public>:?t = external {}
+
+          MaxValue<public>:?t = external {}
+
+      @attribscope_class
+      @attribscope_struct
+      @attribscope_data
+      @customattribhandler
+      editable_vector_slider<public>(t:type) := class<final>(editable):
+          ShowPreserveRatio<public>:logic = external {}
+
+          MinComponentValue<public>:?t = external {}
+
+          MaxComponentValue<public>:?t = external {}
+
+          SliderDelta<public>:?t = external {}
+
+          SliderExponent<public>:?t = external {}
+
+          MouseLinearDeltaSensitivity<public>:float = external {}
 
         MouseShiftMovePixelPerDelta<public>:float = external {}
 
-    @attribscope_class
-    @attribscope_struct
-    @attribscope_data
-    @customattribhandler
-    editable_number<public>(t:type) := class<final>(editable):
-        MinValue<public>:?t = external {}
+      @attribscope_class
+      @attribscope_struct
+      @attribscope_data
+      @customattribhandler
+      editable_vector_number<public>(t:type) := class<final>(editable):
+          ShowPreserveRatio<public>:logic = external {}
 
-        MaxValue<public>:?t = external {}
+          MinComponentValue<public>:?t = external {}
 
-    @attribscope_class
-    @attribscope_struct
-    @attribscope_data
-    @customattribhandler
-    editable_vector_slider<public>(t:type) := class<final>(editable):
-        ShowPreserveRatio<public>:logic = external {}
+          MaxComponentValue<public>:?t = external {}
 
-        MinComponentValue<public>:?t = external {}
+          SpinBoxDelta<public>:?t = external {}
 
-        MaxComponentValue<public>:?t = external {}
-
-        SliderDelta<public>:?t = external {}
-
-        SliderExponent<public>:?t = external {}
-
-        MouseLinearDeltaSensitivity<public>:float = external {}
-
-        MouseShiftMovePixelPerDelta<public>:float = external {}
-
-    @attribscope_class
-    @attribscope_struct
-    @attribscope_data
-    @customattribhandler
-    editable_vector_number<public>(t:type) := class<final>(editable):
-        ShowPreserveRatio<public>:logic = external {}
-
-        MinComponentValue<public>:?t = external {}
-
-        MaxComponentValue<public>:?t = external {}
-
-        SpinBoxDelta<public>:?t = external {}
-
-    @attribscope_class
-    @attribscope_struct
-    @attribscope_data
-    @customattribhandler
-    editable_container<public> := class<final>(editable):
-        AllowReordering<public>:logic = external {}
+      @attribscope_class
+      @attribscope_struct
+      @attribscope_data
+      @customattribhandler
+      editable_container<public> := class<final>(editable):
+          AllowReordering<public>:logic = external {}
 
 
-    agent<native><public> := class<unique><epic_internal>:
+      agent<native><public> := class<unique><epic_internal>:
 
-    localizable_agent<native><epic_internal> := class(localizable_value):
+      localizable_agent<native><epic_internal> := class(localizable_value):
 
-    MakeLocalizableValue<epic_internal>(Agent:agent):localizable_agent = external {}
+      MakeLocalizableValue<epic_internal>(Agent:agent):localizable_agent = external {}
 
-    player<native><public> := class<unique><persistent><module_scoped_var_weak_map_key><epic_internal>(agent):
-        IsActive<native><public>()<varies><decides>:void
+      player<native><public> := class<unique><persistent><module_scoped_var_weak_map_key><epic_internal>(agent):
+          IsActive<native><public>()<varies><decides>:void
 
     # Type for which there is a single instance per round.  Use `GetSession` to get the current round's `session` instance. May be used with `weak_map` to implement global variables.
     # Note: may be changed in a future release to a single instance per game. Round-local behavior should not be relied upon.
