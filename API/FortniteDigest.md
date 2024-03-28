@@ -2288,225 +2288,251 @@
 `AlertedEvent<public>:listenable(agent) = external {}`
 
 * Signaled when the sentry exists the alert state.
+
 `ExitsAlertEvent<public>:listenable(tuple()) = external {}`
 
 * Signaled when the sentry enters the alert state.
+         
 `EntersAlertCooldownEvent<public>:listenable(tuple()) = external {}`
 
 * Signaled when a sentry attacks an `agent`.
 * Sends the `agent` who is being attacked.
+
 `AttackingEvent<public>:listenable(agent) = external {}`
 
 * Signaled when a sentry is eliminated.
 * Sends the `agent` that eliminated the sentry. If the sentry was eliminated by a non-agent then `false` is returned.
+
 `EliminatedEvent<public>:listenable(?agent) = external {}`
 
->         # Signaled when the sentry eliminates a creature.
->         EliminatingACreatureEvent<public>:listenable(tuple()) = external {}
+* Signaled when the sentry eliminates a creature.
 
->         # Signaled when a sentry eliminates an `agent`.
->         # Sends the `agent` who was eliminated by the sentry.
->         EliminatingAgentEvent<public>:listenable(agent) = external {}
+`EliminatingACreatureEvent<public>:listenable(tuple()) = external {}`
 
->         # Enables this device.
->         Enable<public>():void = external {}
+* Signaled when a sentry eliminates an `agent`.
+* Sends the `agent` who was eliminated by the sentry.
 
->         # Disables this device.
->         Disable<public>():void = external {}
+`EliminatingAgentEvent<public>:listenable(agent) = external {}`
 
->         # Spawns the sentry.
->         Spawn<public>():void = external {}
+* Enables this device.
+`Enable<public>():void = external {}`
 
->         # Destroys the current sentry.
->         DestroySentry<public>():void = external {}
+* Disables this device.
+`Disable<public>():void = external {}`
 
->         # Sets the sentry to the same team `Agent` is on.
->         JoinTeam<public>(Agent:agent):void = external {}
+* Spawns the sentry.
+`Spawn<public>():void = external {}`
 
->         # Resets the sentry to the original team designated in the device options.
->         ResetTeam<public>():void = external {}
+* Destroys the current sentry.
+`DestroySentry<public>():void = external {}`
 
->         # Puts the sentry into the pacify state, preventing from entering the alert (attacking) state.
->         Pacify<public>():void = external {}
+* Sets the sentry to the same team `Agent` is on.
+`JoinTeam<public>(Agent:agent):void = external {}`
 
->         # Puts the sentry into the alert state.
->         EnableAlert<public>():void = external {}
+* Resets the sentry to the original team designated in the device options.
+`ResetTeam<public>():void = external {}`
 
->         # Sets the sentry to target `Agent`. The sentry will not target agents on the same team as the sentry.
->         Target<public>(Agent:agent):void = external {}
+* Puts the sentry into the pacify state, preventing from entering the alert (attacking) state.
+`Pacify<public>():void = external {}`
 
->         # Resets the alert state.
->         ResetAlertCooldown<public>():void = external {}
+* Puts the sentry into the alert state.
+`EnableAlert<public>():void = external {}`
 
->     # Used to spawn and configure an aerial supply drop that can provide players with customized weapons/supplies.
->     supply_drop_spawner_device<public> := class<concrete><final>(creative_device_base):
->         # Signaled when the balloon on the supply crate is popped.
->         # Sends the `?agent` that popped the balloon. If no `agent` popped the balloon returns `false`.
->         BalloonPoppedEvent<public>:listenable(?agent) = external {}
+* Sets the sentry to target `Agent`. The sentry will not target agents on the same team as the sentry.
+`Target<public>(Agent:agent):void = external {}`
 
->         # Signaled when the supply crate is opened.
->         # Sends the `agent` that opened the crate.
->         OpenedEvent<public>:listenable(agent) = external {}
+* Resets the alert state.
+`ResetAlertCooldown<public>():void = external {}`
 
->         # Signaled when the supply crate lands for the first time.
->         LandingEvent<public>:listenable(tuple()) = external {}
+## supply_drop_spawner_device
 
->         # Spawns a supply drop provided one hasn't already spawned. *Owning Team* is set to `Agent`'s team.
->         Spawn<public>(Agent:agent):void = external {}
+`supply_drop_spawner_device<public> := class<concrete><final>(creative_device_base):`
 
->         # Spawns a supply drop provided one hasn't already spawned.
->         Spawn<public>():void = external {}
+* Used to spawn and configure an aerial supply drop that can provide players with customized weapons/supplies.
+     
+* Signaled when the balloon on the supply crate is popped.
+* Sends the `?agent` that popped the balloon. If no `agent` popped the balloon returns `false`.
+`BalloonPoppedEvent<public>:listenable(?agent) = external {}`
 
->         # Destroys the balloon and causes the supply crate to freefall.
->         DestroyBalloon<public>():void = external {}
+* Signaled when the supply crate is opened.
+* Sends the `agent` that opened the crate.
+`OpenedEvent<public>:listenable(agent) = external {}`
 
->         # Opens the supply crate, ignoring the locked or unlocked state. `Agent` acts as the instigator of the open action.
->         Open<public>(Agent:agent):void = external {}
+* Signaled when the supply crate lands for the first time.
+`LandingEvent<public>:listenable(tuple()) = external {}`
 
->         # Locks the supply crate so `agent`s cannot open it.
->         Lock<public>():void = external {}
+* Spawns a supply drop provided one hasn't already spawned. *Owning Team* is set to `Agent`'s team.
+`Spawn<public>(Agent:agent):void = external {}`
 
->         # Unlocks the supply crate so `agent`s can open it.
->         Unlock<public>():void = external {}
+* Spawns a supply drop provided one hasn't already spawned.
+`Spawn<public>():void = external {}`
 
->     # Used to create and customize your own visual effects. This is more flexible than the `vfx_spawner_device`, which gives you a selection of pre-made visual effects to choose from but limits how much you can customize or change those effects.
->     vfx_creator_device<public> := class<concrete><final>(creative_device_base):
->         # Enables this device.
->         Enable<public>():void = external {}
+* Destroys the balloon and causes the supply crate to freefall.
+`DestroyBalloon<public>():void = external {}`
 
->         # Disables this device.
->         Disable<public>():void = external {}
+* Opens the supply crate, ignoring the locked or unlocked state. `Agent` acts as the instigator of the open action.
+`Open<public>(Agent:agent):void = external {}`
 
->         # Toggles between `Enable` and `Disable`.
->         ToggleEnabled<public>():void = external {}
+* Locks the supply crate so `agent`s cannot open it.
+`Lock<public>():void = external {}`
 
->         # Starts playing the effect.
->         Begin<public>():void = external {}
+* Unlocks the supply crate so `agent`s can open it.
+`Unlock<public>():void = external {}`
 
->         # Starts the effect at `Agent`'s location. This option is only valid if *Stick to Player* is enabled.
->         Begin<public>(Agent:agent):void = external {}
+## vfx_creator_device
 
->         # Starts the effect at every `agent`'s location. This option is only valid if *Stick to Player* is enabled.
->         BeginForAll<public>():void = external {}
+`vfx_creator_device<public> := class<concrete><final>(creative_device_base):`
 
->         # Ends playing the effect.
->         End<public>():void = external {}
+* Used to create and customize your own visual effects. This is more flexible than the `vfx_spawner_device`, which gives you a selection of pre-made visual effects to choose from but limits how much you can customize or change those effects.
 
->         # Ends the effect at `Agent`'s location. This option is only valid if *Stick to Player* is enabled.
->         End<public>(Agent:agent):void = external {}
+* Enables this device.
+`Enable<public>():void = external {}`
 
->         # Ends the effect at every `agent`'s locations. This option is only valid if *Stick to Player* is enabled.
->         EndForAll<public>():void = external {}
+* Disables this device.
+`Disable<public>():void = external {}`
 
->         # Toggles between `Begin` and `End`.
->         Toggle<public>():void = external {}
+* Toggles between `Enable` and `Disable`.
+`ToggleEnabled<public>():void = external {}`
 
->         # Toggles between `Begin` and `End`.
->         Toggle<public>(Agent:agent):void = external {}
+* Starts playing the effect.
+`Begin<public>():void = external {}`
 
->         # Toggles between `BeginForAll` and `EndForAll`.
->         ToggleForAll<public>():void = external {}
+* Starts the effect at `Agent`'s location. This option is only valid if *Stick to Player* is enabled.
+`Begin<public>(Agent:agent):void = external {}`
 
->         # Pauses the effect if the effect is running. If the effect is paused, unpauses the effect. Pausing an effect causes the effect to freeze in place.
->         TogglePause<public>():void = external {}
+* Starts the effect at every `agent`'s location. This option is only valid if *Stick to Player* is enabled.
+`BeginForAll<public>():void = external {}`
 
->         # Pauses the effect at `Agent`'s locations if it is playing, or resumes the effect if it is paused.
->         # When paused the effect freezes in place.
->         TogglePause<public>(Agent:agent):void = external {}
+* Ends playing the effect.
+`End<public>():void = external {}`
 
->         # Pauses the effect at every `agent`'s locations if it is playing, or resumes the effect if it is paused.
->         # When paused the effect freezes in place.
->         TogglePauseForAll<public>():void = external {}
+* Ends the effect at `Agent`'s location. This option is only valid if *Stick to Player* is enabled.
+`End<public>(Agent:agent):void = external {}`
 
->         # Removes the effect from `Agent` and continues playing at the device location. This option is only valid if *Stick to Player* is enabled.
->         Remove<public>(Agent:agent):void = external {}
+* Ends the effect at every `agent`'s locations. This option is only valid if *Stick to Player* is enabled.
+`EndForAll<public>():void = external {}`
 
->         # Removes the effect for every `agent` and continues playing at the device location. This option is only valid if *Stick to Player* is enabled.
->         RemoveFromAll<public>():void = external {}
+* Toggles between `Begin` and `End`.
+`Toggle<public>():void = external {}`
 
->         # Spawns the effect at `Agent`'s location. This option is only valid if *Stick to Player* is enabled.
->         SpawnAt<public>(Agent:agent):void = external {}
+* Toggles between `Begin` and `End`.
+`Toggle<public>(Agent:agent):void = external {}`
 
->     # Used to place visual effects around your island. You can use these effects to enhance the overall theme and experience of your game.
->     vfx_spawner_device<public> := class<concrete><final>(creative_device_base):
->         # Signaled when the effect is enabled.
->         EffectEnabledEvent<public>:listenable(tuple()) = external {}
+* Toggles between `BeginForAll` and `EndForAll`.
+`ToggleForAll<public>():void = external {}`
 
->         # Signaled when the effect is disabled.
->         EffectDisabledEvent<public>:listenable(tuple()) = external {}
+* Pauses the effect if the effect is running. If the effect is paused, unpauses the effect. Pausing an effect causes the effect to freeze in place.
+`TogglePause<public>():void = external {}`
 
->         # Enables this device.
->         Enable<public>():void = external {}
+* Pauses the effect at `Agent`'s locations if it is playing, or resumes the effect if it is paused.
+* When paused the effect freezes in place.
+`TogglePause<public>(Agent:agent):void = external {}`
 
->         # Disables this device.
->         Disable<public>():void = external {}
+* Pauses the effect at every `agent`'s locations if it is playing, or resumes the effect if it is paused.
+* When paused the effect freezes in place.
+`TogglePauseForAll<public>():void = external {}`
 
->         # Restarts the VFX. Triggers the VFX if it's Burst VFX.
->         Restart<public>():void = external {}
+* Removes the effect from `Agent` and continues playing at the device location. This option is only valid if *Stick to Player* is enabled.
+`Remove<public>(Agent:agent):void = external {}`
 
->     # Used to create and manipulate volumes of water where players can swim, fish, or drive boats.
->     water_device<public> := class<concrete><final>(creative_device_base):
->         # Signaled when an `agent` enters the water.
->         # Sends `agent` that entered the water.
->         AgentEntersWaterEvent<public>:listenable(agent) = external {}
+* Removes the effect for every `agent` and continues playing at the device location. This option is only valid if *Stick to Player* is enabled.
+`RemoveFromAll<public>():void = external {}`
 
->         # Signaled when an `agent` exits the water.
->         # Sends `agent` that exited the water.
->         AgentExitsWaterEvent<public>:listenable(agent) = external {}
+* Spawns the effect at `Agent`'s location. This option is only valid if *Stick to Player* is enabled.
+`SpawnAt<public>(Agent:agent):void = external {}`
 
->         # Signals when the volume is filled to the water level set in the *Default Vertical Water Percentage* option.
->         VerticalFillingCompletedEvent<public>:listenable(tuple()) = external {}
+## vfx_spawner_device
 
->         # Signals when the water volume is completely empty.
->         VerticalEmptyingCompletedEvent<public>:listenable(tuple()) = external {}
+`vfx_spawner_device<public> := class<concrete><final>(creative_device_base):`
 
->         # Enables this device.
->         Enable<public>():void = external {}
+* Used to place visual effects around your island. You can use these effects to enhance the overall theme and experience of your game.
 
->         # Disables this device.
->         Disable<public>():void = external {}
+* Signaled when the effect is enabled.
+`EffectEnabledEvent<public>:listenable(tuple()) = external {}`
 
->         # Resets the water level in the volume to the value set in the *Default Vertical Water Percentage* option.
->         Reset<public>():void = external {}
+* Signaled when the effect is disabled.
+`EffectDisabledEvent<public>:listenable(tuple()) = external {}`
 
->         # Starts vertically emptying the water in the volume.
->         BeginVerticalEmptying<public>():void = external {}
+* Enables this device.
+`Enable<public>():void = external {}`
 
->         # Starts vertically filling the water in the volume.
->         BeginVerticalFilling<public>():void = external {}
+* Disables this device.
+`Disable<public>():void = external {}`
 
->         # Stops filling or emptying the volume.
->         StopVerticalMovement<public>():void = external {}
+* Restarts the VFX. Triggers the VFX if it's Burst VFX.
+`Restart<public>():void = external {}`
 
->         # Resumes either filling or emptying the volume.
->         ResumeVerticalMovement<public>():void = external {}
+##  water_device
 
->     # Used to create a zone where players are put into a skydive state. Can customize the amount of force used to push the player, and how fast players are launched into the air. The direction of the push is in relation to the device, so you can rotate and overlap several devices, then use variable speeds to create pneumatic tubes that propel players in different directions. You can even create unique traversal (traveling) options, where players can use these zones to reach places on your island they couldn't reach any other way.
->     skydive_volume_device<public> := class<concrete><final>(effect_volume_device):
->         # Signaled when an `agent` enters the volume.
->         # Sends the `agent` that entered the volume.
->         AgentEntersEvent<public>:listenable(agent) = external {}
+`water_device<public> := class<concrete><final>(creative_device_base):`
 
->         # Signaled when an `agent` exits the volume.
->         # Sends the `agent` that exited the volume.
->         AgentExitsEvent<public>:listenable(agent) = external {}
+* Used to create and manipulate volumes of water where players can swim, fish, or drive boats.
 
->         # Signaled when the zone changes from empty to occupied.
->         # Sends the `agent` that entered the volume.
->         ZoneOccupiedEvent<public>:listenable(agent) = external {}
+* Signaled when an `agent` enters the water.
+* Sends `agent` that entered the water.
+`AgentEntersWaterEvent<public>:listenable(agent) = external {}`
 
->         # Signaled when the zone changes from occupied to empty.
->         # Sends the `agent` that last left the volume.
->         ZoneEmptiedEvent<public>:listenable(agent) = external {}
+* Signaled when an `agent` exits the water.
+* Sends `agent` that exited the water.
+`AgentExitsWaterEvent<public>:listenable(agent) = external {}`
 
->         # Enables volume locking which prevents users from leaving the volume once they've entered.
->         EnableVolumeLocking<public>():void = external {}
+* Signals when the volume is filled to the water level set in the `Default Vertical Water Percentage` option.
+`VerticalFillingCompletedEvent<public>:listenable(tuple()) = external {}`
 
->         # Disables volume locking which prevents users from leaving the volume once they've entered.
->         DisableVolumeLocking<public>():void = external {}
+* Signals when the water volume is completely empty.
+`VerticalEmptyingCompletedEvent<public>:listenable(tuple()) = external {}`
 
->         # Is true when `Agent` is in the volume.
->         IsInVolume<public>(Agent:agent)<transacts><decides>:void = external {}
+* Enables this device.
+`Enable<public>():void = external {}`
+
+* Disables this device.
+`Disable<public>():void = external {}`
+
+* Resets the water level in the volume to the value set in the *Default Vertical Water Percentage* option.
+`Reset<public>():void = external {}`
+
+* Starts vertically emptying the water in the volume.
+`BeginVerticalEmptying<public>():void = external {}`
+
+* Starts vertically filling the water in the volume.
+`BeginVerticalFilling<public>():void = external {}`
+
+* Stops filling or emptying the volume.
+`StopVerticalMovement<public>():void = external {}`
+
+* Resumes either filling or emptying the volume.
+`ResumeVerticalMovement<public>():void = external {}`
+
+## skydive_volume_device
+
+`skydive_volume_device<public> := class<concrete><final>(effect_volume_device):`
+
+* Used to create a zone where players are put into a skydive state. 
+
+* Signaled when an `agent` enters the volume.
+* Sends the `agent` that entered the volume.
+`AgentEntersEvent<public>:listenable(agent) = external {}`
+
+* Signaled when an `agent` exits the volume.
+* Sends the `agent` that exited the volume.
+`AgentExitsEvent<public>:listenable(agent) = external {}`
+
+* Signaled when the zone changes from empty to occupied.
+* Sends the `agent` that entered the volume.
+`ZoneOccupiedEvent<public>:listenable(agent) = external {}`
+
+* Signaled when the zone changes from occupied to empty.
+* Sends the `agent` that last left the volume.
+`ZoneEmptiedEvent<public>:listenable(agent) = external {}`
+
+* Enables volume locking which prevents users from leaving the volume once they've entered.
+`EnableVolumeLocking<public>():void = external {}`
+
+* Disables volume locking which prevents users from leaving the volume once they've entered.
+`DisableVolumeLocking<public>():void = external {}`
+
+* Is true when `Agent` is in the volume.
+`IsInVolume<public>(Agent:agent)<transacts><decides>:void = external {}`
 
 >     # Used to specify a zone where custom gameplay effects can be applied (e.g. gravity, no build, no weapons).
 >     mutator_zone_device<public> := class<concrete><final>(effect_volume_device):
@@ -5099,87 +5125,85 @@
 >             Await<public>()<suspends>:play_animation_result = external {}
 
 >             # Helper function that succeeds if the state is Playing, BlendingIn, or BlendingOut.
->             IsPlaying<public>()<transacts><decides>:void = external {}
+             IsPlaying<public>()<transacts><decides>:void = external {}
+         # The potential states of a play animation instance.
+         play_animation_state<native><public> := enum:
+             # The animation is blending in.
+             BlendingIn
+             # The animation has blended in, is playing, and has not begun blending out.
+             Playing
+             # The animation is playing and is blending out.
+             BlendingOut
+             # The animation completed successfully.
+             Completed
+             # The animation was stopped internally.
+             Stopped
+             # The animation was interrupted externally.
+             Interrupted
+             # An error occurred at creation or during playback.
+             Error
 
->         # The potential states of a play animation instance.
->         play_animation_state<native><public> := enum:
->             # The animation is blending in.
->             BlendingIn
->             # The animation has blended in, is playing, and has not begun blending out.
->             Playing
->             # The animation is playing and is blending out.
->             BlendingOut
->             # The animation completed successfully.
->             Completed
->             # The animation was stopped internally.
->             Stopped
->             # The animation was interrupted externally.
->             Interrupted
->             # An error occurred at creation or during playback.
->             Error
+         # Get the play_animation_controller for the specified character.
+         (InCharacter:fort_character).GetPlayAnimationController<native><public>()<transacts><decides>:play_animation_controller
 
->         # Get the play_animation_controller for the specified character.
->         (InCharacter:fort_character).GetPlayAnimationController<native><public>()<transacts><decides>:play_animation_controller
+ # Module import path: /Fortnite.com/AI
+ AI<public> := module:
+     focus_interface<native><public> := interface<epic_internal>:
+         # Look At specified location. Will never complete unless interrupted.
+         MaintainFocus<public>(Location:vector3)<suspends>:void
 
-> # Module import path: /Fortnite.com/AI
-> AI<public> := module:
->     focus_interface<native><public> := interface<epic_internal>:
->         # Look At specified location. Will never complete unless interrupted.
->         MaintainFocus<public>(Location:vector3)<suspends>:void
+         # Look At specified Agent. Will never complete unless interrupted.
+         MaintainFocus<public>(Agent:agent)<suspends>:void
 
->         # Look At specified Agent. Will never complete unless interrupted.
->         MaintainFocus<public>(Agent:agent)<suspends>:void
+     # Get the focus_interface interface for the specified character.
+     (InCharacter:fort_character).GetFocusInterface<native><public>()<transacts><decides>:focus_interface
+     fort_leashable<native><public> := interface<epic_internal>:
+         # Set custom leash position.
+         #  'InnerRadius' ranges from 0.0 to 20000.0 (in centimeters).
+         #  'OuterRadius' ranges from 0.0 to 20000.0 (in centimeters) and no less than 'InnerRadius'.
+         SetLeashPosition<public>(Location:vector3, InnerRadius:float, OuterRadius:float):void
 
->     # Get the focus_interface interface for the specified character.
->     (InCharacter:fort_character).GetFocusInterface<native><public>()<transacts><decides>:focus_interface
+         # Set the agent to be the new center of the leash.
+         #  'InnerRadius' ranges from 0.0 to 20000.0 (in centimeters).
+         #  'OuterRadius' ranges from 0.0 to 20000.0 (in centimeters) and no less than 'InnerRadius'.
+         SetLeashAgent<public>(Agent:agent, InnerRadius:float, OuterRadius:float):void
 
->     fort_leashable<native><public> := interface<epic_internal>:
->         # Set custom leash position.
->         #  'InnerRadius' ranges from 0.0 to 20000.0 (in centimeters).
->         #  'OuterRadius' ranges from 0.0 to 20000.0 (in centimeters) and no less than 'InnerRadius'.
->         SetLeashPosition<public>(Location:vector3, InnerRadius:float, OuterRadius:float):void
+         # Removes the current leash.
+         ClearLeash<public>():void
 
->         # Set the agent to be the new center of the leash.
->         #  'InnerRadius' ranges from 0.0 to 20000.0 (in centimeters).
->         #  'OuterRadius' ranges from 0.0 to 20000.0 (in centimeters) and no less than 'InnerRadius'.
->         SetLeashAgent<public>(Agent:agent, InnerRadius:float, OuterRadius:float):void
+     # Get the current fort_leashable interface for the specified character.
+     (InCharacter:fort_character).GetFortLeashable<native><public>()<transacts><decides>:fort_leashable
 
->         # Removes the current leash.
->         ClearLeash<public>():void
+     navigation_target<native><public> := class<epic_internal>:
 
->     # Get the current fort_leashable interface for the specified character.
->     (InCharacter:fort_character).GetFortLeashable<native><public>()<transacts><decides>:fort_leashable
+     # Generate a navigation_target from any position
+     MakeNavigationTarget<constructor><native><public>(Position:vector3):navigation_target
 
->     navigation_target<native><public> := class<epic_internal>:
+     # Generate a navigation_target from an agent
+     MakeNavigationTarget<constructor><native><public>(Target:agent):navigation_target
 
->     # Generate a navigation_target from any position
->     MakeNavigationTarget<constructor><native><public>(Position:vector3):navigation_target
+     # Result of a navigation request
+     navigation_result<native><public> := enum:
+         # The destination has been reached
+         Reached
+         # The destination has been partially reached (AllowPartialPath was used)
+         PartiallyReached
+         # Navigation has been interrupted before completion
+         Interrupted
+         # The navigating agent is blocked
+         Blocked
+         # The destination cannot be reached
+         Unreachable
 
->     # Generate a navigation_target from an agent
->     MakeNavigationTarget<constructor><native><public>(Target:agent):navigation_target
+     movement_type<native><public> := class<concrete><final><computes><epic_internal>:
 
->     # Result of a navigation request
->     navigation_result<native><public> := enum:
->         # The destination has been reached
->         Reached
->         # The destination has been partially reached (AllowPartialPath was used)
->         PartiallyReached
->         # Navigation has been interrupted before completion
->         Interrupted
->         # The navigating agent is blocked
->         Blocked
->         # The destination cannot be reached
->         Unreachable
+     # Module import path: /Fortnite.com/AI/movement_types
+     movement_types<public> := module:
+        Walking<public>:movement_type = external {}
 
->     movement_type<native><public> := class<concrete><final><computes><epic_internal>:
+         Running<public>:movement_type = external {}
 
->     # Module import path: /Fortnite.com/AI/movement_types
->     movement_types<public> := module:
->         Walking<public>:movement_type = external {}
-
->         Running<public>:movement_type = external {}
-
->     navigatable<native><public> := interface<epic_internal>:
+    navigatable<native><public> := interface<epic_internal>:
          # Return the current destination of the character
          GetCurrentDestination<public>()<transacts><decides>:vector3
 
