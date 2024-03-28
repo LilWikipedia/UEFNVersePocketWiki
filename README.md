@@ -1,6 +1,6 @@
 # UEFNVersePocketWiki
 
-This is a project is just the Epic Games Uefn, and verse documentation rewritten in markdown. 
+This is a project is just the Epic Games Uefn, and verse documentation rewritten in markdown- making the API easier to reference
 
 ***
 ![](https://ue-cdn.artstation.com/imgproxy/kbNaxGnLbxRxJBFLqlZ12Ix89EhFVjCVN0wq14zhVag/filename:verse-programming-hero-image.png/resizing_type:fill/width:1920/height:335/ext:jpg/aHR0cHM6Ly9kMWl2N2RiNDR5aGd4bi5jbG91ZGZyb250Lm5ldC9kb2N1bWVudGF0aW9uL2ltYWdlcy80NDkwN2Y5Yi0wYjM3LTQ0MWQtYjlkNy0zMjk0OTU3OWY4YWMvdmVyc2UtcHJvZ3JhbW1pbmctaGVyby1pbWFnZS5wbmc)
