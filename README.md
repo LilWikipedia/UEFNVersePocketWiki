@@ -36,9 +36,9 @@ This is a project is just the Epic Games Uefn, and verse documentation rewritten
 
 ## [1. Fortnite Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Fortnite-Digest)
 
-## [2. Unreal Engine Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Unreal-Engine-Digest)
+## [2. Unreal Engine Digest w.i.p.](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Unreal-Engine-Digest)
 
-## 3. Verse Digest
+## [3. Verse Digest w.i.p.](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Verse-Digest)
 
 ***
 
