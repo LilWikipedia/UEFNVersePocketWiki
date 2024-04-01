@@ -34,20 +34,50 @@ This is a project is just the Epic Games Uefn, and verse documentation rewritten
 ***
 # API
 
-## [1. Fortnite Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Fortnite-Digest)
+## [10. Fortnite Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest)
 
-## [2. Unreal Engine Digest w.i.p.](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Unreal-Engine-Digest)
+###    [ui](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#ui)
 
-## [3. Verse Digest w.i.p.](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Verse-Digest)
+###    [creative_devices](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#creative_devices)
+
+###    [vehicles](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#vehicles)
+
+###    [teams](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#teams)
+
+###    [playspaces](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#playspaces)
+
+###    [game](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#game)
+
+###    [fortplayerutilities](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#fortplayerutilities)
+
+###    [characters](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#characters)
+
+###    [building](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#building)
+
+###    [assets](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#assets)
+
+###    [animation](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#animation)
+
+###    [ai](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#ai)
+
+## [11. Unreal Engine Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest)
+
+###    [ui](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#ui)
+
+###    [diagnostics](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#diagnostics)
+
+###    [SpatialMath](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#spatialmath)
+
+## [12. Verse Digest w.i.p.](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest)
 
 ***
 
 # More Resources
 
-## [1. Verse Onboarding Guide](https://dev.epicgames.com/documentation/en-us/uefn/onboarding-guide-to-programming-with-verse-in-unreal-editor-for-fortnite)
-## [2. Programming with Verse](https://dev.epicgames.com/documentation/en-us/uefn/learn-programming-with-verse-in-unreal-editor-for-fortnite)
-## [3. Language Reference](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)
-## [4. Official API](https://dev.epicgames.com/documentation/en-us/uefn/verse-api)
-## [5. Verse Scripting](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
+## [13. Verse Onboarding Guide](https://dev.epicgames.com/documentation/en-us/uefn/onboarding-guide-to-programming-with-verse-in-unreal-editor-for-fortnite)
+## [14. Programming with Verse](https://dev.epicgames.com/documentation/en-us/uefn/learn-programming-with-verse-in-unreal-editor-for-fortnite)
+## [15. Language Reference](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)
+## [16. Official API](https://dev.epicgames.com/documentation/en-us/uefn/verse-api)
+## [17. Verse Scripting](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
 
 ***
