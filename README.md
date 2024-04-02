@@ -68,7 +68,21 @@ This is a project is just the Epic Games Uefn, and verse documentation rewritten
 
 ###    [SpatialMath](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#spatialmath)
 
-## [12. Verse Digest w.i.p.](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest)
+## [12. Verse Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest)
+
+###    [Simulation](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#simulation)
+
+###    [Tags](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#tags)
+
+###    [Functions, Methods, and Getters](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#functions-methods-and-getters)
+
+###    [Colors](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#colors)
+
+###    [NamedColors](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#namedcolors)
+
+###    [Native](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#native)
+
+###    [Concurrency](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#concurrency)
 
 ***
 
