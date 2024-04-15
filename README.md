@@ -7,7 +7,6 @@
 
 This is a project is just the **Epic Games** Uefn, and verse documentation rewritten in markdown- adding more direct navigation, and making the API easier to reference.
 
-* markdown by [Lil Wikipedia](https://allmylinks.com/lilwikipedia)
 
 
 ***
@@ -37,12 +36,14 @@ This is a project is just the **Epic Games** Uefn, and verse documentation rewri
 ## [7. Events](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/07.-Events)
 ## [8. Concurrency](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/08.-Concurrency)
 ## [9. Attributes](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/09.-Attributes)
-
+## [10. Constructors]
+## [11. Class]
+## [12. Operators]
 
 ***
 # API
 
-## [10. Fortnite Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest)
+## [Fortnite Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest)
 
 ###    [ui](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#ui)
 
@@ -68,7 +69,7 @@ This is a project is just the **Epic Games** Uefn, and verse documentation rewri
 
 ###    [ai](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#ai)
 
-## [11. Unreal Engine Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest)
+## [Unreal Engine Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest)
 
 ###    [ui](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#ui)
 
@@ -76,7 +77,7 @@ This is a project is just the **Epic Games** Uefn, and verse documentation rewri
 
 ###    [SpatialMath](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#spatialmath)
 
-## [12. Verse Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest)
+## [Verse Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest)
 
 ###    [Simulation](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#simulation)
 
@@ -96,10 +97,10 @@ This is a project is just the **Epic Games** Uefn, and verse documentation rewri
 
 # More Resources
 
-## [13. Verse Onboarding Guide](https://dev.epicgames.com/documentation/en-us/uefn/onboarding-guide-to-programming-with-verse-in-unreal-editor-for-fortnite)
-## [14. Programming with Verse](https://dev.epicgames.com/documentation/en-us/uefn/learn-programming-with-verse-in-unreal-editor-for-fortnite)
-## [15. Language Reference](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)
-## [16. Official API](https://dev.epicgames.com/documentation/en-us/uefn/verse-api)
-## [17. Verse Scripting](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
+## [Verse Onboarding Guide](https://dev.epicgames.com/documentation/en-us/uefn/onboarding-guide-to-programming-with-verse-in-unreal-editor-for-fortnite)
+## [Programming with Verse](https://dev.epicgames.com/documentation/en-us/uefn/learn-programming-with-verse-in-unreal-editor-for-fortnite)
+## [Language Reference](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)
+## [Official API](https://dev.epicgames.com/documentation/en-us/uefn/verse-api)
+## [Verse Scripting](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
 
 ***
