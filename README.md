@@ -1,106 +1,142 @@
-![](https://ue-cdn.artstation.com/imgproxy/kbNaxGnLbxRxJBFLqlZ12Ix89EhFVjCVN0wq14zhVag/filename:verse-programming-hero-image.png/resizing_type:fill/width:1920/height:335/ext:jpg/aHR0cHM6Ly9kMWl2N2RiNDR5aGd4bi5jbG91ZGZyb250Lm5ldC9kb2N1bWVudGF0aW9uL2ltYWdlcy80NDkwN2Y5Yi0wYjM3LTQ0MWQtYjlkNy0zMjk0OTU3OWY4YWMvdmVyc2UtcHJvZ3JhbW1pbmctaGVyby1pbWFnZS5wbmc)
+---
+description: verse.FNCwiki.com
+---
 
-# VerseWiki
+# Table of Contents
 
-## [Verse.FNCWiki.com](https://www.Verse.FNCWiki.com/)
+![](https://ue-cdn.artstation.com/imgproxy/kbNaxGnLbxRxJBFLqlZ12Ix89EhFVjCVN0wq14zhVag/filename:verse-programming-hero-image.png/resizing\_type:fill/width:1920/height:335/ext:jpg/aHR0cHM6Ly9kMWl2N2RiNDR5aGd4bi5jbG91ZGZyb250Lm5ldC9kb2N1bWVudGF0aW9uL2ltYWdlcy80NDkwN2Y5Yi0wYjM3LTQ0MWQtYjlkNy0zMjk0OTU3OWY4YWMvdmVyc2UtcHJvZ3JhbW1pbmctaGVyby1pbWFnZS5wbmc)
 
+## VerseWiki
 
-This is a project is just the **Epic Games** Uefn, and verse documentation rewritten in markdown- adding more direct navigation, and making the API easier to reference.
+This project is just the **Epic Games** UEFN and Verse documentation rewritten in markdown- adding more direct navigation, and making the API easier to reference.&#x20;
 
+There is ALOT of unorganized documentation on Epic's website so this will be an ongoing project!
 
+If you are interested in contributing to the project use the [Contact](https://www.fncwiki.com/contact-8) page or reach out to me via LilWikipediaFN@gmail.com
 
 ***
 
-![verse-icon](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/a894c872-b4e0-492e-b7dd-2c79dc971abe)
-![uefnicon](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/fe7cbe1e-1b77-49b4-b4aa-a6c6866882ce)
-![fortnite icon 256](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/16c1ae8d-0299-4f94-81dd-8c8997188c76)
+![](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/a894c872-b4e0-492e-b7dd-2c79dc971abe) ![](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/fe7cbe1e-1b77-49b4-b4aa-a6c6866882ce) ![](https://github.com/LilWikipedia/UEFNVersePocketWiki/assets/78571191/16c1ae8d-0299-4f94-81dd-8c8997188c76)
+
 ***
- **Programming with Verse**
+
+**Programming with Verse**
 
 * Create your own rules and behaviors for your game by programming with Verse in UEFN!
-* This guide provides a set of recommended standards for writing consistent code that's easy to maintain. 
-* By adhering to these guidelines, developers can improve code readability, reduce errors, and facilitate collaboration. 
+* This guide provides a set of recommended standards for writing consistent code that's easy to maintain.
+* By adhering to these guidelines, developers can improve code readability, reduce errors, and facilitate collaboration.
 * Standardized code style is necessary to ensure code is easy to understand and maintain by both current and future developers working on a project.
 
 ***
 
-# Syntax
+## <mark style="color:green;">Verse Basics</mark>
 
-## [Importing Expressions or Modules](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/Importing-Expressions-or-Modules)
-## [1. Common Naming Patterns](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/01.-Common-Naming-Patterns)
-## [2. Names](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/02.-Names)
-## [3. Formatting](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/03.-Formatting)
-## [4. Functions](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/04.-Functions)
-## [5. Failure Checks](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/05.-Failure-Checks)
-## [6. Encapsulation](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/06.-Encapsulation)
-## [7. Events](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/07.-Events)
-## [8. Concurrency](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/08.-Concurrency)
-## [9. Attributes](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/09.-Attributes)
-## [10. Constructors]
-## [11. Class]
-## [12. Operators]
+### [Importing Expressions or Modules](import-expressions.md)
 
-***
-# API
+### [1. Common Naming Patterns](01.-common-naming-patterns.md)
 
-## [Fortnite Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest)
+### [2. Names](02.-names.md)
 
-###    [ui](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#ui)
+### [3. Formatting](03.-formatting.md)
 
-###    [creative_devices](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#creative_devices)
+### [4. Functions](04.-functions.md)
 
-###    [vehicles](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#vehicles)
+### [5. Failure Checks](05.-failure-checks.md)
 
-###    [teams](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#teams)
+### [6. Encapsulation](06.-encapsulation.md)
 
-###    [playspaces](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#playspaces)
+### [7. Events](07.-events.md)
 
-###    [game](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#game)
+### [8. Concurrency](08.-concurrency.md)
 
-###    [fortplayerutilities](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#fortplayerutilities)
+### [9. Attributes](09.-attributes.md)
 
-###    [characters](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#characters)
+### [10. Constructors](10.-constructors.md)
 
-###    [building](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#building)
+### [11. Class](11.-class-and-specifiers.md)
 
-###    [assets](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#assets)
+### [12. Math](12.-math.md)
 
-###    [animation](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#animation)
 
-###    [ai](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/10.-Fortnite-Digest#ai)
-
-## [Unreal Engine Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest)
-
-###    [ui](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#ui)
-
-###    [diagnostics](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#diagnostics)
-
-###    [SpatialMath](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/11.-Unreal-Engine-Digest#spatialmath)
-
-## [Verse Digest](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest)
-
-###    [Simulation](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#simulation)
-
-###    [Tags](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#tags)
-
-###    [Functions, Methods, and Getters](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#functions-methods-and-getters)
-
-###    [Colors](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#colors)
-
-###    [NamedColors](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#namedcolors)
-
-###    [Native](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#native)
-
-###    [Concurrency](https://github.com/LilWikipedia/UEFNVersePocketWiki/wiki/12.-Verse-Digest#concurrency)
 
 ***
 
-# More Resources
+## <mark style="color:green;">API</mark>
 
-## [Verse Onboarding Guide](https://dev.epicgames.com/documentation/en-us/uefn/onboarding-guide-to-programming-with-verse-in-unreal-editor-for-fortnite)
-## [Programming with Verse](https://dev.epicgames.com/documentation/en-us/uefn/learn-programming-with-verse-in-unreal-editor-for-fortnite)
-## [Language Reference](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)
-## [Official API](https://dev.epicgames.com/documentation/en-us/uefn/verse-api)
-## [Verse Scripting](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
+### [<mark style="background-color:blue;">Fortnite Digest</mark>](fortnite-digest.md)
+
+#### [ui](fortnite-digest.md#ui)
+
+#### [creative\_devices](fortnite-digest.md#creative\_devices)
+
+#### [vehicles](fortnite-digest.md#vehicles)
+
+#### [teams](fortnite-digest.md#teams)
+
+#### [playspaces](fortnite-digest.md#playspaces)
+
+#### [game](fortnite-digest.md#game)
+
+#### [fortplayerutilities](fortnite-digest.md#fortplayerutilities)
+
+#### [characters](fortnite-digest.md#characters)
+
+#### [building](fortnite-digest.md#building)
+
+#### [assets](fortnite-digest.md#assets)
+
+#### [animation](fortnite-digest.md#animation)
+
+#### [ai](fortnite-digest.md#ai)
+
+### [<mark style="background-color:green;">Unreal Engine Digest</mark>](unreal-engine-digest.md)
+
+#### [ui](unreal-engine-digest.md#ui)
+
+#### [diagnostics](unreal-engine-digest.md#diagnostics)
+
+#### [SpatialMath](unreal-engine-digest.md#spatialmath)
+
+### [<mark style="background-color:red;">Verse Digest</mark>](verse-digest.md)
+
+#### [Simulation](verse-digest.md#simulation)
+
+#### [Tags](verse-digest.md#tags)
+
+#### [Functions, Methods, and Getters](verse-digest.md#functions-methods-and-getters)
+
+#### [Colors](verse-digest.md#colors)
+
+#### [NamedColors](verse-digest.md#namedcolors)
+
+#### [Native](verse-digest.md#native)
+
+#### [Concurrency](verse-digest.md#concurrency)
 
 ***
+
+## <mark style="color:green;">Source/Resources</mark>
+
+### EG: [Verse Onboarding Guide](https://dev.epicgames.com/documentation/en-us/uefn/onboarding-guide-to-programming-with-verse-in-unreal-editor-for-fortnite)
+
+### EG: [Programming with Verse](https://dev.epicgames.com/documentation/en-us/uefn/learn-programming-with-verse-in-unreal-editor-for-fortnite)
+
+### EG: [Language Reference](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)
+
+### EG: [Official API](https://dev.epicgames.com/documentation/en-us/uefn/verse-api)
+
+### EG: [Verse Scripting](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
+
+### EG: [Dev Community](https://forums.unrealengine.com/tags/c/development-discussion/programming-scripting/148/fortnite/l/latest)
+
+### EG: [Community Snippets](https://dev.epicgames.com/community/fortnite/snippets)
+
+***
+
+### EG:[ View on Github](https://github.com/LilWikipedia/UEFNVersePocketWiki)
+
+***
+
+####
+
+_Use of the Unreal Engine, Unreal Editor for Fortnite and Verse is governed by_ _the terms of the Unreal® Engine_ [End User License Agreement](https://www.unrealengine.com/eula). _A majority of this content was taken from_ [_VERSE DOCUMENTATION_](https://dev.epicgames.com/documentation/en-us/uefn/verse-code-style-guide-in-unreal-editor-for-fortnite) _Such content belongs to EPIC GAMES. Verse icon, UEFN, UEFN icon, Unreal Engine, Unreal Engine logo, Fortnite, & Fortnite icon are property of EPIC GAMES_ **This gitbook is not maintained or endorsed by EPIC GAMES.** It is made for educational purposes only.&#x20;
