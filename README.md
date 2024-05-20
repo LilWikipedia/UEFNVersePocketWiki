@@ -133,7 +133,7 @@ If you are interested in contributing to the project use the [Contact](https://w
 
 ***
 
-### EG:[ View on Github](https://github.com/LilWikipedia/UEFNVersePocketWiki)
+### [View on Github](https://github.com/LilWikipedia/UEFNVersePocketWiki)
 
 ***
 
