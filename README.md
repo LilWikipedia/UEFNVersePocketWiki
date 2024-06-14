@@ -8,11 +8,11 @@ description: verse.FNCwiki.com
 
 ## VerseWiki
 
-This project is just the **Epic Games** UEFN and Verse documentation rewritten in markdown- adding more direct navigation, and making the API easier to reference.&#x20;
+This project is just the **Epic Games** UEFN and Verse documentation rewritten in markdown- adding more direct navigation, and making the API easier to reference.
 
 There is ALOT of unorganized documentation on Epic's website so this will be an ongoing project!
 
-If you are interested in contributing to the project use the [Contact](https://www.fncwiki.com/contact-8) page or reach out to me via LilWikipediaFN@gmail.com
+
 
 ***
 
@@ -56,8 +56,6 @@ If you are interested in contributing to the project use the [Contact](https://w
 ### [11. Class](11.-class-and-specifiers.md)
 
 ### [12. Math](12.-math.md)
-
-
 
 ***
 
@@ -139,4 +137,4 @@ If you are interested in contributing to the project use the [Contact](https://w
 
 ####
 
-_Use of the Unreal Engine, Unreal Editor for Fortnite and Verse is governed by_ _the terms of the Unreal® Engine_ [End User License Agreement](https://www.unrealengine.com/eula). _A majority of this content was taken from_ [_VERSE DOCUMENTATION_](https://dev.epicgames.com/documentation/en-us/uefn/verse-code-style-guide-in-unreal-editor-for-fortnite) _Such content belongs to EPIC GAMES. Verse icon, UEFN, UEFN icon, Unreal Engine, Unreal Engine logo, Fortnite, & Fortnite icon are property of EPIC GAMES_ **This gitbook is not maintained or endorsed by EPIC GAMES.** It is made for educational purposes only.&#x20;
+_Use of the Unreal Engine, Unreal Editor for Fortnite and Verse is governed by_ _the terms of the Unreal® Engine_ [End User License Agreement](https://www.unrealengine.com/eula). _A majority of this content was taken from_ [_VERSE DOCUMENTATION_](https://dev.epicgames.com/documentation/en-us/uefn/verse-code-style-guide-in-unreal-editor-for-fortnite) _Such content belongs to EPIC GAMES. Verse icon, UEFN, UEFN icon, Unreal Engine, Unreal Engine logo, Fortnite, & Fortnite icon are property of EPIC GAMES_ **This gitbook is not maintained or endorsed by EPIC GAMES.** It is made for educational purposes only.
